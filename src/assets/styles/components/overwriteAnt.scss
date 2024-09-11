@@ -1,0 +1,60 @@
+
+.ant-menu-inline-collapsed-tooltip {
+  .ant-tooltip-inner {
+    a {
+      color: #fff;
+    }
+  }
+}
+
+.popupSubMenu {
+  .ant-menu-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .ant-menu-item-icon {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+
+}
+
+.ant-btn-primary {
+  &:active,
+  &:hover,
+  &:focus {
+    color: #fff !important;
+  }
+}
+.ant-btn-background-ghost {
+  &:active,
+  &:hover,
+  &:focus {
+
+    color: #fff !important;
+  }
+}
+.ant-image-preview-img{
+  display: inline-block;
+}
+.ant-btn-primary {
+
+  background-color: var(--ant-primary-color);
+
+}
+
+.ant-picker-footer-extra {
+  line-height: 38px;
+  padding: 0 12px;
+  text-align: left;
+}
+.ant-switch {
+  background: $gray-color;
+}
+
+.ant-segmented {
+  background-color: $gray-second-color;
+}

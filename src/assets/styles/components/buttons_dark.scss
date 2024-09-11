@@ -1,0 +1,21 @@
+
+// Icons
+.btn {
+
+  &.btn-icon {
+    background-color: #00152C;
+  }
+  &:hover, &:active {
+    background-color: rgba(30, 41, 60, 1);
+  }
+}
+
+// Icons
+.link {
+
+  &:hover, &:active{
+
+    background-color:transparent;
+
+  }
+}

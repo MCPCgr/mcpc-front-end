@@ -1,0 +1,29 @@
+.partner-btn{
+
+  border: 1px solid var(--ant-primary-color);
+  svg{
+    width: 50px;
+    height: auto;
+
+  }
+  [fill]:not([fill="none"]):not([fill="white"])  {
+    fill:var(--ant-primary-color) ;
+  }
+  color: var(--ant-primary-color);
+  &:hover{
+    background: var(--ant-primary-color);
+    border: 1px solid #ffffff;
+    [fill]:not([fill="none"]):not([fill="white"])  {
+      fill:  #ffffff;
+    }
+    color: #ffffff;
+  }
+  &.approved{
+    background: transparent;
+    border: 1px solid #008000;
+    [fill]:not([fill="none"]):not([fill="white"])  {
+      fill:  #008000;
+    }
+    color: #008000;
+  }
+}

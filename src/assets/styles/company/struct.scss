@@ -1,0 +1,53 @@
+@import "vue3-blocks-tree/dist/vue3-blocks-tree.css";
+@import "partner-btn";
+.org-tree-container{
+  background-color: transparent !important;
+}
+.struct-logo{
+  margin: 0 auto !important;
+}
+.org-tree-node-btn{
+  background-color: #fff;
+  border-color: var(--ant-primary-color) !important;
+  &:hover{
+    background-color: #fff;
+  }
+}
+.org-tree-node-btn:after {
+  border-color:var(--ant-primary-color) !important;
+}
+.org-tree-node-btn:before {
+
+  border-color:var(--ant-primary-color) !important;
+}
+.org-tree-node-children:before {
+
+  border-color:var(--ant-primary-color) !important;
+}
+.org-tree-node:not(:first-child):before, .org-tree-node:not(:last-child):after {
+  border-color:var(--ant-primary-color) !important;
+}
+
+.org-tree-node:after {
+  border-color:var(--ant-primary-color) !important;
+}
+.dark {
+  .org-tree-node-btn {
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+    &:hover{
+      --tw-bg-opacity: 1;
+      background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+    }
+  }
+}
+.org-tree-node-label .org-tree-node-label-inner {
+
+  //box-shadow: none !important;
+}
+.org-tree-node-label-inner{
+  border-radius: 8px;
+//background-color: $gray-color;
+//  border: 1px solid var(--ant-primary-color);
+  border-bottom: 2px solid var(--ant-primary-color);
+}

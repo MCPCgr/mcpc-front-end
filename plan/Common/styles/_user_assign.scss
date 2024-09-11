@@ -1,0 +1,110 @@
+.user-assign {
+
+  text-align: right;
+
+  .ant-select-selection-overflow{
+    cursor: pointer;
+  }
+  .ant-avatar{
+    background: #FFFFFF;
+  }
+  .ant-select-selection-search {
+    //padding-left: 18px;
+  }
+
+  .ant-select-selection-overflow-item {
+    margin-right: -13px !important;
+  }
+
+  .ant-select-selection-overflow-item-suffix {
+    margin-right: 0 !important;
+    margin-left: 13px;
+  }
+
+  .ant-select-selector {
+    border: none !important;
+    box-shadow: none !important;
+
+    &:focus, &:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  .ant-select-selection-placeholder {
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    img{
+      width: 28px;
+      height: 28px;
+      border: 1px dashed $gray-color;
+      border-radius: 50%;
+    }
+    .user-add{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: $gray-color;
+      color: $white;
+      font-weight: bold;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      line-height: 15px;
+      font-size: 10px;
+      text-align: center;
+    }
+  }
+
+  .ant-select-selection-item {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #eeeeee;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    .ant-select-selection-item-content {
+      font-size: 10px;
+      margin-inline-end: 0;
+      text-align: center;
+      width: 100%;
+      line-height: 28px;
+    }
+  }
+
+  .ant-tag {
+    border: none;
+    background: transparent;
+    position: relative;
+    margin-inline-end: 0;
+    padding-inline: 0;
+
+    .ant-tag-close-icon {
+      visibility: hidden;
+      position: absolute;
+      top: -1px;
+      right: -1px;
+      background: #cccccc;
+      padding: 2px;
+      border-radius: 50%;
+      z-index: 100;
+
+    }
+
+
+    &:hover {
+      .ant-tag-close-icon {
+        visibility: visible;
+      }
+    }
+  }
+
+
+}
+.user-assigned {
+  width: 150px;
+}

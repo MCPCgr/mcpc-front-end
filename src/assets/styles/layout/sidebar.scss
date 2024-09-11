@@ -1,0 +1,147 @@
+.side-toggle{
+  position: absolute;
+  right: -15px;
+  top: 18px;
+  background-color: #fff;
+}
+.ant-menu-submenu-title{
+  //padding-left: 24px !important;
+  .svg-icon{
+    display: inline-block;
+  }
+}
+.ant-menu-submenu{
+  .ant-menu-item-icon, .ant-menu-submenu-arrow, .ant-menu-submenu-expand-icon {
+    color: $gray-color ;
+  }
+  .svg-icon{
+    display: inline-block;
+    [fill]:not([fill="none"])  {
+      fill:  $gray-color;
+    }
+  }
+  &:hover{
+    .ant-menu-submenu-title{
+      .ant-menu-item-icon, .ant-menu-submenu-arrow, .ant-menu-submenu-expand-icon {
+        color: $primary-color ;
+      }
+      .svg-icon{
+        [fill]:not([fill="none"])  {
+          fill:  $primary-color;
+        }
+      }
+    }
+  }
+}
+.ant-menu-item{
+  //padding-left: 30px !important;
+
+  .svg-icon{
+    [fill]:not([fill="none"])  {
+      fill:  $gray-color;
+    }
+  }
+  &:hover{
+    color: $primary-color ;
+    .svg-icon{
+      [fill]:not([fill="none"])  {
+        fill:  $primary-color;
+      }
+    }
+  }
+
+}
+.ant-menu-sub.ant-menu-inline{
+  background: $white !important;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  background-color: transparent !important;
+}
+.ant-menu-item, .ant-menu-submenu {
+  .svg-icon {
+    width: 21px;
+    height: 21px;
+    vertical-align: middle !important;
+  }
+  .ant-menu-item-icon{
+    font-size: 18px !important;
+  }
+
+  background: transparent !important;
+}
+
+
+
+.ant-layout-sider{
+  .logo{
+    text-align: left;
+  }
+  //height: calc(100% - 80px);
+
+  .logout-btn-side{
+    width: 100%;
+    //position: absolute;
+    //bottom: 10px;
+    //left: 0;
+    text-align: left;
+    padding: 10px 20px !important;
+
+    justify-content:start !important;
+    font-size: 14px;
+    color: inherit;
+  }
+
+  .ant-menu-submenu-selected{
+    .ant-menu-submenu-title, .ant-menu-item-selected{
+      .svg-icon{
+        [fill]:not([fill="none"])  {
+          fill:  $primary-color;
+        }
+      }
+    }
+  }
+  .ant-menu-item{
+    &:after {
+      border-right: 3px solid transparent !important;
+      width: calc(100% - 20px);
+      height: 100%;
+      background: transparent;
+      margin-left: 40px;
+      margin-right: 10px;
+      border-radius: 10px;
+      z-index: 0;
+      transition: transform 0s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0s cubic-bezier(0.215, 0.61, 0.355, 1) !important;
+    }
+  }
+  .ant-menu-item-selected{
+    .ant-menu-title-content, svg, i{
+      z-index: 1;
+    }
+    &:after {
+      border-right: 3px solid transparent !important;
+      width: calc(100% - 20px);
+      height: 100%;
+      background: #f4f6fa;
+      margin-left: 40px;
+      margin-right: 10px;
+      border-radius: 10px;
+      z-index: 0;
+    }
+  }
+}
+.ant-menu-horizontal{
+  svg {
+    display: inline-block;
+  }
+}
+.menuName {
+  svg,
+  span {
+    vertical-align: middle;
+  }
+
+  svg {
+    margin-right: 10px;
+  }
+}

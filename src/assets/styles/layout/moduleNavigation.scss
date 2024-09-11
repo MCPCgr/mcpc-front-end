@@ -1,0 +1,80 @@
+.module-page{
+  margin-top: 30px;
+  .logo-light, .logo-dark{
+    width:300px;
+    margin: 30px auto;
+  }
+  .module-navigation{
+    .card {
+
+
+      border-radius: 0.5rem;
+      color: $black-second-color;
+      display: flex;
+      flex-direction: column;
+      min-width: 1px;
+      overflow-wrap: break-word;
+      position: relative;
+      font-size: 1.1rem;
+      &:hover{
+        background: $primary-color-lightest;
+        color: $primary-color ;
+        .svg-icon{
+          [fill]:not([fill="none"])  {
+            fill:  $primary-color;
+          }
+        }
+        p{
+          color: $primary-color;
+        }
+      }
+      .module-menus{
+        color: $gray-color;
+        font-size: 14px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        margin-top: 5px;
+        line-height: 20px;
+        margin-bottom: 0;
+      }
+      .svg-icon{
+
+        width: 30px;
+        height: 30px;
+        margin-bottom: 10px;
+        [fill]:not([fill="none"])  {
+          fill:  $primary-color-lighten;
+        }
+      }
+    }
+
+  }
+
+}
+.dark {
+  .module-page {
+
+
+
+    .module-navigation {
+      .card {
+        color: $white;
+        &:hover{
+          background: $primary-color-darkest;
+          color: $primary-color ;
+
+          .svg-icon{
+            [fill]:not([fill="none"])  {
+              fill:  $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

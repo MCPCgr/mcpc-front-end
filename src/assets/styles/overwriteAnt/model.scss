@@ -1,0 +1,31 @@
+:where(.css-dev-only-do-not-override-5jzdcy).ant-modal .ant-modal-close {
+  width: 26px;
+  height: 26px;
+  border-radius: 36px;
+  border: 1px solid $primary-color;
+  background-color: $primary-color;
+  color: #FFFFFF;
+
+  //top: 17px;
+  //inset-inline-end: 23px;
+}
+:where(.css-dev-only-do-not-override-5jzdcy).ant-modal .ant-modal-close:hover {
+  width: 26px;
+  height: 26px;
+  border-radius: 36px;
+  border: 1px solid $primary-color;
+  background-color: #FFFFFF;
+  color: $primary-color;
+}
+:where(.css-dev-only-do-not-override-5jzdcy).ant-modal .ant-modal-close-x {
+  font-size: 12px;
+}
+:where(.css-dev-only-do-not-override-5jzdcy).ant-modal .ant-modal-content {
+  border-radius: 16px;
+}
+:where(.css-dev-only-do-not-override-5jzdcy).ant-modal .ant-modal-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: $primary-color-darkest;
+}
+

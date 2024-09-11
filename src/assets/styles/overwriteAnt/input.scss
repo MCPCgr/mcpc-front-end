@@ -1,0 +1,46 @@
+.loginInput{
+  .ant-input-affix-wrapper {
+    border: 1px solid $primary-color-lighten;
+    display: flex;
+    border-radius: 36px;
+    color: $primary-color-darkest;
+  }
+
+  .ant-input-affix-wrapper > input.ant-input {
+    padding: 4px 10px;
+  }
+
+  .ant-input-prefix {
+    margin-right: 10px;
+  }
+  .ant-input{
+    color: $primary-color-darkest;
+  }
+  .ant-form-item-explain-error {
+    color: var(--ant-error-color);
+    font-size: 13px;
+  }
+  .ant-input::placeholder{
+    color:  $primary-color-darkest;
+    opacity: 0.5;
+    font-size: 13px;
+  }
+
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border-radius: 36px;
+    border: 1px solid $primary-color-lighten;
+  }
+  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    height: 38px;
+    width: 100%;
+    padding: 4px 10px;
+  }
+  .ant-select-arrow {
+    color: $primary-color-darkest;
+  }
+
+  :where(.css-dev-only-do-not-override-5jzdcy).ant-input-affix-wrapper >input.ant-input {
+    border-radius: 36px;
+  }
+
+}

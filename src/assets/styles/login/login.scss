@@ -1,0 +1,26 @@
+.aside-theme .content{
+  .title {
+
+    h2{
+      color: #21b3ff;
+    }
+   p {
+      color: #fe4e24;
+    }
+  }
+
+  &:before {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0) !important;
+    height: 100%;
+    width: 100%;
+    display: block;
+    content: "";
+
+  }
+}
+.aside-theme {
+  .register-section {
+    padding: 0 3em;
+  }
+}

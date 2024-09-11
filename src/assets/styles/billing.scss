@@ -1,0 +1,20 @@
+.current-subscription{
+  .change-subscription{
+    display: none;
+  }
+  &:hover {
+    .change-subscription{
+      color:#ffffff;
+      display: block;
+    }
+  }
+
+}
+.current-subscription{
+  .ant-progress-text {
+    color: #fff !important;
+  }
+  .ant-progress-line{
+    margin-bottom: 0 !important;
+  }
+}

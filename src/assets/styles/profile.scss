@@ -1,0 +1,19 @@
+.user-nav-item{
+  .svg-icon {
+
+    [fill]:not([fill="none"]):not([fill="white"])  {
+      fill:  $gray-color;
+    }
+  }
+  &.router-link-exact-active, &:hover {
+
+    color: $primary-color;
+    .svg-icon {
+
+
+      [fill]:not([fill="none"]):not([fill="white"]) {
+        fill: $primary-color;
+      }
+    }
+  }
+}

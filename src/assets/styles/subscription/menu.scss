@@ -1,0 +1,23 @@
+.inactive-module{
+
+  background-color: $gray-second-color;
+  cursor: pointer;
+  svg{
+    [fill]:not([fill="none"]):not([fill="white"])  {
+      fill:  $gray-color !important;
+    }
+    [stroke]:not([stroke="none"]):not([stroke="white"])  {
+      stroke:  $gray-color !important;
+      opacity: 1 !important;
+      stroke-opacity: 1 !important;
+    }
+  }
+
+  &:hover{
+    background: $gray-third-color !important;
+    color: $gray-color !important;
+    p{
+      color: $gray-color !important;
+    }
+  }
+}

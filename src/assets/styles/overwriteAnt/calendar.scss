@@ -1,0 +1,39 @@
+.calendar-over-style{
+  .ant-badge.ant-badge-status .ant-badge-status-text {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    font-size: 12px;
+  }
+
+ .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-calendar-date, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-calendar-date-today {
+    background: #103067;
+  }
+
+  .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date .ant-picker-calendar-date-value, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date .ant-picker-calendar-date-value, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date-today .ant-picker-calendar-date-value, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date-today .ant-picker-calendar-date-value {
+    color: #fcfcfd;
+    font-weight: 600;
+    //color: #103067;
+  }
+
+  .ant-picker-cell-inner.ant-picker-calendar-date.ant-picker-calendar-date-today {
+    .ant-badge.ant-badge-status .ant-badge-status-text {
+      color: #FFFFFF;
+    }
+  }
+
+  .ant-badge.ant-badge-status {
+    display: flex;
+    line-height: inherit;
+    vertical-align: baseline;
+    align-items: center;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    width: 100%;
+    text-overflow: ellipsis !important;
+    font-size: 12px;
+  }
+
+
+}

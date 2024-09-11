@@ -1,0 +1,21 @@
+.kanban{
+  @import "stage";
+  @import "task";
+
+  .ghost-card {
+    opacity: 0.5;
+    background: #F7FAFC;
+    border: 1px solid #4299e1;
+  }
+  .add-task-btn{
+    .ant-btn-svg-icon{
+
+      [fill]:not([fill="none"])  {
+        fill:  #666 !important;
+      }
+
+
+    }
+    color:#666 !important;
+  }
+}

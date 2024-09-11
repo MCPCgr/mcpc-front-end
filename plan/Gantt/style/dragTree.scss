@@ -1,0 +1,32 @@
+.he-tree{
+  //border-top: 1px solid red;
+  .tree-node{
+
+
+    border-top: 1px solid rgb(238, 238, 238);
+
+    height: 40px;
+    position: relative;
+
+    .tree-node-inner{
+      padding-left: 10px;
+      line-height: 14px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      .task-name{
+        cursor: pointer;
+      }
+    }
+    &:hover{
+      color: #0a7fd9;
+    }
+  }
+
+  .tree-node:last-child {
+
+    border-bottom: 1px solid rgb(238, 238, 238);
+  }
+}
+

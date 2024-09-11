@@ -1,0 +1,18 @@
+@import "dropdown";
+@import "project";
+@import "taskForm";
+@import "user_assign";
+@import "subTaskDueDate";
+
+.favorite-project{
+  .svg-icon {
+    line-height: 1;
+    [fill]:not([fill="none"]):not([fill="white"])  {
+      fill:  $primary-color;
+    }
+    [stroke]:not([stroke="none"]):not([stroke="white"])  {
+      stroke:  $primary-color;
+
+    }
+  }
+}

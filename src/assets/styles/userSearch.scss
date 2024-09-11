@@ -1,0 +1,14 @@
+.user-search{
+  .ant-input-search-button{
+    border: 1px solid var(--ant-primary-color) !important;
+
+
+  }
+  .ant-input-group-addon [fill]:not([fill=none]) {
+    fill: #ffffff !important;
+  }
+  .ant-input-group-addon {
+    border: 1px solid var(--ant-primary-color) !important;
+  }
+  margin-bottom: 30px;
+}

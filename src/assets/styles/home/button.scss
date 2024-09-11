@@ -1,0 +1,51 @@
+.button-login {
+  .ant-btn-primary {
+    border: 1px solid $primary-color;
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 14px;
+    text-shadow: none;
+    background: $primary-color;
+    box-shadow: none;
+    border-radius: 9999px;
+    min-width: 0 !important;
+    padding: 18px 24px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    //text-transform: uppercase;
+  }
+  .ant-btn-primary:active, .ant-btn-primary:hover {
+    background-color: $primary-color;
+    color: white;
+  }
+}
+.button-signup {
+  .ant-btn-primary {
+    border: 1px solid $primary-color;
+    color: $primary-color;
+    font-weight: 400;
+    font-size: 14px;
+    text-shadow: none;
+    background: none;
+    box-shadow: none;
+    border-radius: 9999px;
+    min-width: 0 !important;
+    padding: 18px 24px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center;
+    //text-transform: uppercase;
+
+    &:focus{
+      color: $primary-color!important;
+    }
+    &:hover{
+      color: #fff!important;
+    }
+  }
+  .ant-btn-primary:active, .ant-btn-primary:hover {
+    background-color: $primary-color;
+    color: white;
+  }
+}

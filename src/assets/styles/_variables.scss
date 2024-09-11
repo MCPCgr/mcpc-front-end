@@ -1,0 +1,38 @@
+/* General */
+$fontSize:14px;
+$borderRadius:12px;
+$transitionDuration:.2s;
+$maskBg:rgba(0, 0, 0, 0.4);
+
+//background-colors
+$body-background: #FBFDFF;
+
+:root {
+  --primary-color:#1e90ff;
+  --color-sf-primary:92 47 145;
+  --ant-primary-color:#1e90ff;
+  --primary-color-lighten: #1e90ff;
+  --primary-color-lightest: #f7faff;
+  --primary-color-darken: #1e90ff;
+  --primary-color-darkest: #020e29;
+}
+
+//colors
+$primary-color: var(--primary-color);
+$primary-color-lighten: var(--primary-color-lighten);
+$primary-color-lightest: var(--primary-color-lightest);
+$primary-color-darken: var(--primary-color-darken);
+$primary-color-darkest: var(--primary-color-darkest);
+$ag-primary-color: var(--ant-primary-color);
+$second-color: #F44B87;
+$black-color: #151617;
+$black-second-color: #343943;
+$gray-color: #5f6479;
+$gray-second-color: #D8DDE4;
+$gray-third-color: #e9ecef;
+$white: #fff;
+
+
+$dark-deactive-font-color: rgba(255, 255, 255, 0.65);
+$dark-active-font-color: rgba(255, 255, 255, 0.85);
+

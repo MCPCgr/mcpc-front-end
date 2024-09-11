@@ -1,0 +1,24 @@
+.dark, {
+  header{
+    .menu-active{
+      .router-link-active{
+        --tw-bg-opacity: 1;
+        background-color: rgb(241 245 249/var(--tw-bg-opacity));
+        --tw-text-opacity: 1;
+        color: rgb(15 23 42/var(--tw-text-opacity));
+      }
+    }
+  }
+}
+
+header{
+
+  .menu-active{
+    .router-link-active{
+      --tw-bg-opacity: 1;
+      background-color: rgb(241 245 249/var(--tw-bg-opacity));
+      --tw-text-opacity: 1;
+      color: rgb(15 23 42/var(--tw-text-opacity));
+    }
+  }
+}

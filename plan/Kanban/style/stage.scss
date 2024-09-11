@@ -1,0 +1,21 @@
+.stage {
+  min-width: 320px;
+  width: 320px;
+  cursor: pointer;
+
+  .btn.btn-icon {
+    background-color: transparent;
+    .svg-icon [fill]:not([fill=none]) {
+      --tw-text-opacity: 1;
+      fill: rgb(55 65 81 / var(--tw-text-opacity));
+    }
+    &:hover{
+      background-color: #ffffff;
+      .svg-icon [fill]:not([fill=none]) {
+
+        fill: $primary-color;
+      }
+    }
+
+  }
+}

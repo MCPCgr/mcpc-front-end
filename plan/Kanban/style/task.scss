@@ -1,0 +1,15 @@
+.task {
+
+  .task-edit{
+    visibility: hidden;
+  }
+
+  &:hover {
+    .task-edit{
+      visibility: visible;
+    }
+  }
+  &:active {
+    background-color: #ffffff !important;
+  }
+}

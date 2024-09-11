@@ -1,0 +1,41 @@
+
+// DASHBOARD-TAB
+.dashboard_tab {
+  .ant-tabs-tab-btn:hover {
+    color: #FE4E25;
+  }
+}
+
+// PROJECT-TAB
+.dashboard_datepicker {
+  .ant-picker-input > input {
+    border-radius: 0;
+  }
+  .ant-picker:hover, .ant-picker-focused {
+    //border-color: var(--ant-primary-color);
+  }
+  .ant-picker-range-separator {
+    display: none;
+  }
+  .ant-picker-range .ant-picker-active-bar {
+    bottom: -1px;
+    height: 2px;
+    margin-left: 11px;
+    background: #ffffff;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+  }
+}
+
+.dashboard_shadow {
+box-shadow: 0 10px 15px rgba(44, 59, 99, 0.07);
+}
+.dashboard-avatar{
+  margin: 0!important;
+}
+.extra-filters{
+  .ant-picker-now{
+    line-height: 28px !important;
+  }
+}

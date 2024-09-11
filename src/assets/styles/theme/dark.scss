@@ -1,0 +1,22 @@
+.dark{
+  @import "../layout/sidebar_dark";
+  @import "../layout/.levelMenu_dark";
+  @import "../components/buttons_dark";
+  color-scheme: dark;
+  //.ant-layout-sider {
+  //  position: fixed !important;
+  //}
+  .ant-layout .ant-layout-footer{
+    background: #011529;
+  }
+
+}
+
+.dark.ant-layout-sider .ant-menu-item-selected:after {
+
+  background: rgba(255, 255, 255, 0.1) !important;
+
+}
+.dark.ant-layout-sider .logout-btn-side {
+  color: rgba(255, 255, 255, 0.65);
+}

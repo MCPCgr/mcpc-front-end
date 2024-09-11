@@ -1,0 +1,20 @@
+.sub-task-due-date{
+  input{
+    font-size: 11px !important;
+  }
+  .ant-picker-input{
+    cursor: pointer;
+  }
+  .ant-picker{
+    padding: 4px 0px 4px 0px;;
+  }
+}
+.due-date-seted{
+  width: 140px;
+  padding-left: 5px;
+}
+.due-date-not-set{
+ input{
+   display: none !important;
+ }
+}

@@ -1,0 +1,87 @@
+.inventoryPrintPrice{
+  //body {
+  //  width: 100%;
+  //  height: 100%;
+  //  margin: 0;
+  //  padding: 0;
+  //  background-color: #333;
+  //  font-size: 12px;
+  //  font-family: Arial, Helvetica, sans-serif;
+  //}
+  //
+  //* {
+  //  box-sizing: border-box;
+  //  -moz-box-sizing: border-box;
+  //}
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 15mm;
+    margin: 5mm auto;
+    border: 0;
+    border-radius: 0px;
+    background: white;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    position: relative;
+    background-size: contain;
+    font-size: 12px;
+    justify-content: center;
+  }
+  //.print-btn{
+  //  position: fixed;
+  //  bottom: 10mm;
+  //  right: 10mm;
+  //  background: #fff;
+  //  cursor: pointer;
+  //  border: 0 !important;
+  //}
+  //.print-btn:hover{
+  //  background: rgb(194, 191, 191);
+  //}
+  //.print-btn img{
+  //  width: 40px;
+  //}
+  //.pageCenter{
+  //  display: flex;
+  //  flex-direction: column;
+  //  align-items: center;
+  //}
+  //.text{
+  //  font-size: 18px;
+  //  font-weight: 600;
+  //  padding:0px 0 0 0 ;
+  //}
+  //.subText{
+  //  font-size: 24px;
+  //  font-weight: 900;
+  //}
+  //.image{
+  //  width: 180%;
+  //}
+  //@media print {
+  //  .print-btn{
+  //    display: none;
+  //  }
+  //  @page {
+  //    margin: 0cm 0cm 0cm 0cm;
+  //    size: A4;
+  //    padding: 0cm 0cm 0cm 0cm;
+  //    page-break-after: always;
+  //  }
+  //  html ,
+  //  body {
+  //    margin: 0cm 0cm 0cm 0cm;
+  //    padding: 0cm 0cm 0cm 0cm;
+  //    width: 210mm !important;
+  //    background: #fff !important;
+  //
+  //  }
+  //  .page {
+  //    margin: 0;
+  //  }
+  //
+  //}
+
+}

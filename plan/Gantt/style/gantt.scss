@@ -1,0 +1,44 @@
+@import "dragTree";
+.gantt-bar {
+  .handle-group {
+    display: none;
+
+    cursor: ew-resize;
+    fill:  #CCCCCC;
+  }
+
+  &:hover {
+    .handle-group {
+      display: block!important;
+    }
+  }
+
+}
+.gantt-bar:hover circle {
+  display: block!important;
+}
+.gantt-ctrl-start:hover, .gantt-ctrl-finish:hover {
+  fill: #ffbf5e!important;
+  stroke: #ffa011!important;
+}
+.gantt-label {
+  cursor: pointer;
+}
+.gantt-label:hover {
+  fill: #1582dc!important;
+}
+.gantt{
+  overflow: auto;
+
+  text {
+    -webkit-user-select: none;  /* Chrome, Safari, Opera */
+    -moz-user-select: none;     /* Firefox */
+    -ms-user-select: none;      /* Internet Explorer/Edge */
+    user-select: none;          /* Non-prefixed version, currently
+                                 supported by Chrome, Opera, and Firefox */
+  }
+
+}
+.gantt-menu{
+
+}
