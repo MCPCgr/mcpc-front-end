@@ -51,9 +51,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         'logo-light':
-          "url('~/assets/mcpc-gr.svg')",
+          "url('/amjilthome/logos/mcpc-gr.svg')",
         'logo-dark':
-          "url('~/assets/mcpc-gr-white.svg')",
+          "url('/amjilthome/logos/mcpc-gr-white.svg')",
 
         'icon-lms-light':
           "url('/amjilthome/icons/lms.svg')",
@@ -83,7 +83,7 @@ module.exports = {
       colors: {
         'primary-color': '#282834',
         'regal-gray': '#667085',
-        'regal-purple': '#1e90ff',
+        'regal-purple': '#272C6E',
         'regal-dark-black': '#0b0d1f',
       },
 

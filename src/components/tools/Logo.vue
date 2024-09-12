@@ -31,7 +31,7 @@ export default defineComponent({
   setup(props) {
 
     return {
-      title: "amjilt.com",
+      title: "MCPC",
       logo: "/amjilthome/logos/mcpc-gr.svg",
       logoDark: "/amjilthome/logos/mcpc-gr-white.svg",
       logoSquire: "/amjilthome/logos/mcpc-s.svg",

@@ -200,7 +200,7 @@ body {
   justify-content: center;
   bottom: 10mm;
   right: 10mm;
-  background: #3471f6;
+  background: #272C6E;
   cursor: pointer;
   border:none !important;
   border-radius: 52px !important;

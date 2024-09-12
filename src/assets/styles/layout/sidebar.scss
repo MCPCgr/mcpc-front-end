@@ -97,6 +97,9 @@
       .svg-icon{
         [fill]:not([fill="none"])  {
           fill:  $primary-color;
+          .dark & {
+            fill: #ffffff;
+          }
         }
       }
     }

@@ -100,7 +100,7 @@ export default {
             DOM.addEventListener('click',  ()=> {
               if(DOM.getAttribute("class") !== "selected" && DOM.getAttribute("class") !== "pending"){
                 DOM.setAttribute("default-fill", DOM.getAttribute("fill"))
-                DOM.setAttribute("fill", "#3471f6")
+                DOM.setAttribute("fill", "#272C6E")
                 DOM.setAttribute("class", "pending")
 
 
@@ -304,7 +304,7 @@ export default {
   }
   .selecting{
     .seat-pending{
-      background-color: #3471f6;
+      background-color: #272C6E;
       &:hover{
         background-color: green;
       }
