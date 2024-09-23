@@ -11,10 +11,8 @@
         <img :src="`https://api.amjilt.com/plan${project.logo}`" alt="">
       </div>
     </div>
-    <div class="text-sm leading-6 ml-2">
-      <div class="dark:text-slate-200 text-slate-700 ">
-        {{ project.title }}
-      </div>
+    <div class=" text-sm leading-6 ml-2 dark:text-slate-200 text-slate-700">
+      {{ project.title }}
     </div>
   </div>
 </template>

@@ -5,11 +5,9 @@
     </div>
     <div class="flex justify-between items-start">
 
-      <div class="flex-grow flex justify-between items-center">
-
-        <span class="text-gray-700 dark:text-white font-sans tracking-wide text-sm">{{task.task}}</span>
-
-        <ProjectTitle v-if="projectData && projectData.id" :project="projectData"></ProjectTitle>
+      <div class="flex space-x-6 justify-between items-center w-full">
+        <div class="w-full text-gray-700 dark:text-white font-sans tracking-wide text-sm line-clamp-2">{{task.task}}</div>
+        <ProjectTitle class="w-full" v-if="projectData && projectData.id" :project="projectData"></ProjectTitle>
       </div>
 
       <div class="flex task-edit">
