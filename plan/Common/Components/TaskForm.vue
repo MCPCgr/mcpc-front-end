@@ -948,6 +948,8 @@ export default {
       this.task.taskMembers = [...this.task.taskMembers, ...selectedUsers];
 
       this.saveTask();
+
+      this.storeSubTasks();
     },
     deleteMember(index) {
       this.selectedUsers.splice(index, 1);

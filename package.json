@@ -48,7 +48,7 @@
     "@he-tree/vue": "^2.4.2",
     "@headlessui/vue": "^1.6.7",
     "@heroicons/vue": "^1.0.6",
-    "@lambda-platform/lambda-vue": "3.2.83",
+    "@lambda-platform/lambda-vue": "3.2.88",
     "@lottiefiles/dotlottie-vue": "^0.2.4",
     "@lottiefiles/lottie-player": "^2.0.4",
     "@lottiefiles/vue-lottie-player": "^1.1.0",
