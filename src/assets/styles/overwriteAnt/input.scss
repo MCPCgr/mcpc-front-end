@@ -3,7 +3,7 @@
     border: 1px solid $primary-color-lighten;
     display: flex;
     border-radius: 36px;
-    color: $primary-color-darkest;
+    color: $black-color;
   }
 
   .ant-input-affix-wrapper > input.ant-input {
@@ -14,14 +14,14 @@
     margin-right: 10px;
   }
   .ant-input{
-    color: $primary-color-darkest;
+    color: $black-color;
   }
   .ant-form-item-explain-error {
     color: var(--ant-error-color);
     font-size: 13px;
   }
   .ant-input::placeholder{
-    color:  $primary-color-darkest;
+    color:  $black-color;
     opacity: 0.5;
     font-size: 13px;
   }
@@ -36,7 +36,7 @@
     padding: 4px 10px;
   }
   .ant-select-arrow {
-    color: $primary-color-darkest;
+    color: $black-color;
   }
 
   :where(.css-dev-only-do-not-override-5jzdcy).ant-input-affix-wrapper >input.ant-input {
