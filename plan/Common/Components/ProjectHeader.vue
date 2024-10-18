@@ -69,7 +69,10 @@
       :footer="null"
     >
       <div class="flex flex-col">
-        <div class="four_search">
+
+        <div class="four_search" v-if="projectPermission === 1 || projectPermission === 2">
+
+
           <a-select
             v-model:value="selectedEmp"
             show-search
@@ -123,6 +126,8 @@
                   placeholder="Оролцоо"
                   v-model:value="member.access_id"
 
+                  :disabled="projectPermission !== 1"
+
                 >
                   <a-select-option :value="1">Эзэмших</a-select-option>
                   <a-select-option :value="2">Засах</a-select-option>
@@ -131,7 +136,7 @@
                 </a-select>
 
               </div>
-              <button @click="deleteMember(index)" class="align-top">
+              <button @click="deleteMember(index)" class="align-top" v-if="projectPermission === 1">
                 <DeleteOutlined class="ml-2 hover:text-primary_color" @click.prevent/>
               </button>
             </div>
@@ -140,7 +145,7 @@
 
         <div class="flex justify-end">
           <div class="button-primary">
-            <a-button type="primary" @click="saveMembers">
+            <a-button type="primary" @click="saveMembers" :disabled="projectPermission !== 1">
               <span class="px-4">Хадгалах</span>
             </a-button>
           </div>
@@ -156,6 +161,7 @@ import {GET_EMPLOYEE_WITH_USER} from "~/graphql/queries"
 import ls from "~/utils/Storage";
 import {COMPANY} from "~/store/mutation-types-tatatonga";
 import {DeleteOutlined, PlusOutlined} from "@ant-design/icons-vue";
+import { projectPermission } from "~/store/useSiteSettings"
 
 export default {
   name: "ProjectHeader",
@@ -170,6 +176,7 @@ export default {
   data() {
     const company = ls.get(COMPANY);
     return {
+      projectPermission,
       company,
       showMembersModal: false,
       selectedEmp: null,

@@ -51,7 +51,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'logo-light':
-          "url('/amjilthome/logos/mcpc-gr.svg')",
+          "url('/amjilthome/logos/mcpc-gr-white.svg')",
         'logo-dark':
           "url('/amjilthome/logos/mcpc-gr-white.svg')",
 
@@ -81,10 +81,20 @@ module.exports = {
         '5xl': 'rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px',
       },
       colors: {
-        'primary-color': '#282834',
-        'regal-gray': '#667085',
-        'regal-purple': '#272C6E',
-        'regal-dark-black': '#0b0d1f',
+        // 'primary-color': '#282834',
+        // 'regal-gray': '#667085',
+        // 'regal-purple': '#272C6E',
+        // 'regal-dark-black': '#0b0d1f',
+        'primary-color': '#0b4da3',
+        'miat-soft': '#d0e2f8',
+        'primary_color': '#0b4da3',
+        'primary-color-light': '#fff5f8',
+        'main_color': '#6B7280',
+        'second_color': '#111827',
+        'blue_second': '#2275e1',
+        'blue_second_medium': '#cdecfc',
+        'blue_primary_light': '#f3f4f6',
+        'border_color': '#e1e5ec',
       },
 
       keyframes: {

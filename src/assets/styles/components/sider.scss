@@ -6,8 +6,6 @@
 
   .ant-layout-sider-children {
     overflow: hidden;
-
-
   }
 
   &.ant-fixed-sidemenu {
@@ -22,7 +20,6 @@
     text-align: center;
     overflow: hidden;
     line-height: 64px;
-    //background: #002140;
     transition: all 0s;
 
     img,
@@ -49,12 +46,11 @@
   }
 
   &.light {
-    background-color: #fff;
+    //background-color: $bg-miat-soft;
     //box-shadow: 2px 0px 8px 0px rgba(29, 35, 41, 0.05);
     box-shadow: none;
 
     .logo {
-      background: #fff;
       //box-shadow: 1px 1px 0px 0px #e8e8e8;
 
       h1 {
@@ -64,13 +60,177 @@
 
     .ant-menu-light {
       border-right-color: transparent;
+      background: transparent;
     }
   }
-  .ant-menu{
-    box-shadow:none !important;
+
+  .ant-menu {
+    box-shadow: none !important;
+
     .ant-menu-submenu .ant-menu-sub {
       cursor: initial;
       transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     }
   }
+
+}
+
+.newModelSider {
+  position: relative;
+  z-index: 106;
+  min-height: 100vh;
+
+  .ant-layout-sider-children {
+    overflow: hidden;
+  }
+
+  &.ant-fixed-sidemenu {
+    position: fixed;
+    height: 100%;
+  }
+
+  .logo {
+    position: relative;
+    height: 64px;
+    text-align: center;
+    overflow: hidden;
+    line-height: 64px;
+    transition: all 0s;
+
+    img, svg, h1 {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    img, svg {
+      height: 44px;
+    }
+
+    h1 {
+      //color: $primary-color;
+      font-size: 20px;
+      margin: 0 0 0 12px;
+      font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
+      font-weight: 500;
+      vertical-align: middle;
+    }
+  }
+
+  .ant-menu-light {
+    background: transparent;
+  }
+
+  .ant-menu-submenu {
+    .ant-menu-item-icon, .ant-menu-submenu-arrow, .ant-menu-submenu-expand-icon {
+      color: $white;
+    }
+
+    .svg-icon {
+      display: inline-block;
+
+      [fill]:not([fill="none"]) {
+        fill: $white;
+      }
+    }
+
+    &:hover {
+      .ant-menu-submenu-title {
+        .ant-menu-item-icon, .ant-menu-submenu-arrow, .ant-menu-submenu-expand-icon {
+          color: $white;
+        }
+
+        .svg-icon {
+          [fill]:not([fill="none"]) {
+            fill: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-menu-item {
+    .svg-icon {
+      [fill]:not([fill="none"]) {
+        fill: $white;
+      }
+    }
+
+    &:hover {
+      .svg-icon {
+        [fill]:not([fill="none"]) {
+          fill: $white;
+        }
+      }
+    }
+
+  }
+
+  .ant-menu-submenu-selected{
+    .ant-menu-submenu-title, .ant-menu-item-selected{
+      .svg-icon{
+        [fill]:not([fill="none"])  {
+          fill: $white;
+        }
+      }
+    }
+  }
+
+
+  .ant-menu-light .ant-menu-item-selected {
+    .svg-icon {
+      [fill]:not([fill="none"]) {
+        fill: $primary-color !important;
+      }
+    }
+  }
+
+  .ant-menu-inline.ant-menu-root .ant-menu-item > .ant-menu-title-content, .ant-menu-inline.ant-menu-root .ant-menu-submenu-title > .ant-menu-title-content {
+    color: $white;
+  }
+
+  .ant-menu-light .ant-menu-item-selected a, .ant-menu-light .ant-menu-item-selected a, .ant-menu-light .ant-menu-item a   {
+    color: $white;
+  }
+
+  .ant-menu-light .ant-menu-item-selected a, .ant-menu-light .ant-menu-item-selected a:hover, .ant-menu-light .ant-menu-item a:active   {
+    color: $primary-color;
+  }
+
+  .logout-btn-side{
+    width: 100%;
+    text-align: left;
+    padding: 10px 20px !important;
+    align-items: start !important;
+    justify-content:start !important;
+    font-size: 14px;
+    color: $white;
+    background-color: $primary-color;
+    .svg-icon {
+      [fill]:not([fill="none"]) {
+        fill: $white !important;
+      }
+    }
+  }
+
+  //.ant-menu-light .ant-menu-item-selected {
+  //  .svg-icon {
+  //    [fill]:not([fill="none"]) {
+  //      fill: $white !important;
+  //    }
+  //  }
+  //}
+
+  //.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  //  background-color: #FFFFFF !important;
+  //}
+
+  //.ant-menu-light .ant-menu-item-selected {
+  //  background-color: #ccdae3 !important;
+  //}
+
+
+}
+
+.ant-layout .ant-layout-sider {
+  background: $primary-color !important;
 }

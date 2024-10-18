@@ -12,7 +12,7 @@
     <template #item="{element}">
       <div class="flex justify-between sub-task-checklist-item ">
         <div class="sub-task-checkbox">
-          <a-checkbox v-model:checked="element.is_done" @change="()=>doneSubTask(element)"></a-checkbox>
+          <a-checkbox v-model:checked="element.is_done"  :disabled="projectPermission === 3" @change="()=>doneSubTask(element)"></a-checkbox>
         </div>
         <div class="flex-grow flex justify-between">
           <div class="flex-grow relative flex group items-center">
@@ -24,7 +24,7 @@
 <!--                     @change="()=>delayChange(element)"-->
 <!--            />-->
 
-            <span class="sub-sub-task-title flex-grow ml-2 w-full" @click="startEditSubTask(element)"  v-if="element.id !== editingsubtask.id">{{ element.sub_task }}</span>
+            <span class="sub-sub-task-title flex-grow ml-2 w-full" @click="projectPermission !== 3 ? startEditSubTask(element) : ()=>{}"  v-if="element.id !== editingsubtask.id">{{ element.sub_task }}</span>
 <!--            <a-form class="mb-0 w-full" :model="editingSubTask" @focusout="delayChange" @finish="editSubTask" v-if="element.id === editingsubtask.id">-->
 <!--              <a-form-item class="mb-0 flex items-center">-->
 <!--                <a-textarea-->
@@ -38,12 +38,14 @@
 
 
            <a-textarea v-model:value="element.sub_task"
+                       :disabled="projectPermission === 3"
                        v-if="element.id === editingsubtask.id"
-                       @focusout="delayChange"
+                       @focusout="()=>delayChange(element)"
                        placeholder="Дэд ажлын нэр"
                        @blur="()=>editSubTask(element)"
                        @change="()=>delayChange(element)"
                        @keydown.enter.prevent="editSubTask(element)"
+
                        auto-size
                        v-focus
                        class="mr-0.5"
@@ -67,6 +69,7 @@
                 :maxTagPlaceholder="maxTagPlaceholder"
                 @change="()=>empAssigned(element)"
                 :dropdownMatchSelectWidth="false"
+                :disabled="projectPermission === 3"
               >
                 <template #placeholder>
                   <div class="flex items-center justify-center h-full w-full cursor-pointer">
@@ -109,13 +112,14 @@
                 placeholder="" :bordered="false"
                 :locale="locale"
                 value-format="YYYY-MM-DDTHH:mm:ss[Z]"
+                :disabled="projectPermission === 3"
 
                 @blur="()=>editSubTask(element)"
                 @change="()=>delayChange(element)"
               />
             </div>
           </div>
-          <div class="sub-task-delete-btn">
+          <div class="sub-task-delete-btn" v-if="projectPermission !== 3">
             <a-popconfirm
                 title="Устгах уу?"
                 ok-text="Тийм"
@@ -137,7 +141,7 @@
 import draggable from "vuedraggable";
 import {DeleteOutlined} from "@ant-design/icons-vue";
 import mn_MN from "@lambda-platform/lambda-vue/src/antlocale/date_mn_MN";
-
+import { projectPermission } from "~/store/useSiteSettings"
 export default {
   name: "SubTask",
   components: {draggable, DeleteOutlined},
@@ -149,6 +153,7 @@ export default {
   },
   data() {
     return {
+      projectPermission,
       delayTimer: null,
       showMembersModal: false,
       selectedUsers: [],
@@ -171,7 +176,7 @@ export default {
       return index + 1;
     },
     maxTagPlaceholder(extraUsers) {
-      return "+" + extraUsers.length
+      return "+" + extraUsers ? extraUsers.length : ''
     },
     subTaskOrderChanged(e) {
       this.$emit('subTaskOrderChanged', e);

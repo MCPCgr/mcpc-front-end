@@ -6,12 +6,16 @@ import TaskForm from "../Common/Components/TaskForm.vue";
 import {findTaskById, flattenTasks, walkLevel} from "~~/plan/Gantt/utils/utils";
 import {GET_EMPLOYEE_WITH_USER, GET_STRUCTS_NOT_CHILD_COMPANIES} from "~/graphql/queries";
 import ls from "~/utils/Storage";
-import {COMPANY} from "~/store/mutation-types-tatatonga";
+import {COMPANY, USER_EXTRA_ROLES} from "~/store/mutation-types-tatatonga";
 import {USER_INFO} from "~/store/mutation-types";
 import Modal from "ant-design-vue/lib/modal"
 import {ExclamationCircleOutlined} from '@ant-design/icons-vue';
 import {createVNode, defineComponent} from 'vue';
 import {notification} from 'ant-design-vue';
+import {PROJECT_PERMISSION} from "~~/plan/store/mutation-types";
+
+
+
 
 export default {
   components: {TopMenu, ProjectHeader, TaskForm},
@@ -24,7 +28,9 @@ export default {
     }
     const company = ls.get(COMPANY);
     const user = ls.get(USER_INFO);
+
     return {
+
       company,
       user,
       tasks: [],
@@ -37,6 +43,7 @@ export default {
       employees: [],
       companyEmployees: [],
       structs: [],
+      subTaskCounts: [],
       loading: true,
       showTaskModal: false,
       editingTask: {},
@@ -477,6 +484,15 @@ export default {
         window.priorities = this.priorities;
         this.members = res.data.members;
         this.notificationSettings = res.data.notificationSettings;
+
+        if(this.members && this.members.length > 0){
+          const index = this.members.findIndex(m=>m.emp_id === this.user.emp_id);
+          if(index >= 0){
+
+            this.$store.commit(PROJECT_PERMISSION, this.members[index].access_id)
+          }
+        }
+
         this.getProjectEmployees();
       }).catch(e => {
         console.log(e);

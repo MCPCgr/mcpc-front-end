@@ -5,7 +5,7 @@
 
         <a-segmented v-model:value="viewMode" @change="(e)=>changeProjectSettings('view_mode')" :options="modes"  />
 
-        <a-dropdown>
+        <a-dropdown v-if="projectPermission !== 3">
           <a class="ant-dropdown-link" @click.prevent>
             <inline-svg
               src="/assets/icons/duotune/general/gen041.svg" class="svg-icon mr-1 inline-block"
@@ -157,7 +157,7 @@ import {exportSVG, exportPDF, exportExcel} from './utils/export';
 import PlanGantt from './gantt/index.vue';
 import './style/gantt.scss';
 import {formatData, minDate, maxDate, autoSchedule, findTaskById, flattenTasks} from './utils/utils.js';
-
+import { projectPermission } from "~/store/useSiteSettings"
 import {getData, formatXML} from './utils/dataUtils';
 import DraggableTask from "~~/plan/Gantt/components/DraggableTask.vue";
 
@@ -187,6 +187,7 @@ export default {
   },
   data() {
     return {
+      projectPermission,
       // viewMode: "month",
       viewMode: "week",
       // viewMode: "day",
@@ -233,14 +234,19 @@ export default {
   },
   methods: {
     taskDateChanged(e) {
-      this.$emit("taskDateChanged", e)
+      if(this.projectPermission !== 3) {
+        this.$emit("taskDateChanged", e)
+      }
     },
     parentsClosed(closedParents) {
       this.closedParents = [...closedParents];
     },
 
     categoryChange(categories) {
-      this.$emit("categoryChange", categories)
+      if(this.projectPermission !== 3) {
+        this.$emit("categoryChange", categories)
+      }
+
     },
     doCategory() {
       this.$emit("doCategory")

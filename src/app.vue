@@ -65,7 +65,7 @@ export default {
       subTitle,
       darkMode,
       base_url,
-      logo: "/amjilthome/logos/mcpc-gr.svg",
+      logo: "/amjilthome/logos/mcpc-gr-white.svg",
       logoDark: "/amjilthome/logos/mcpc-gr-white.svg",
       primaryColor,
       algorithm: [darkAlgorithm, compactAlgorithm],

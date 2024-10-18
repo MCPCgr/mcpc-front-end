@@ -1,18 +1,13 @@
 <template>
-  <header
-    class="py-3 lg:fixed lg:inset-x-0 bg-white z-20 dark:bg-slate-900 shadow-4xl dark:border-slate-700 dark:border-b"
-  >
+  <header class="py-3 lg:fixed lg:inset-x-0 bg-white z-20 dark:bg-slate-900 shadow-4xl dark:border-slate-700 dark:border-b">
     <div class="container mx-auto px-6">
       <nav class="relative z-50 flex justify-between">
         <div class="flex items-center md:gap-x-10">
           <nuxt-link aria-label="Home" to="/" class="">
-            <div
-              class="mx-auto h-10 2xl:w-36 w-32 dark:bg-logo-dark bg-center">
+            <div class="mx-auto h-10 2xl:w-36 w-32 dark:bg-logo-dark bg-center">
               <img src="/amjilthome/logos/mcpc-gr.svg" alt="logo">
             </div>
           </nuxt-link>
-
-
         </div>
       </nav>
     </div>

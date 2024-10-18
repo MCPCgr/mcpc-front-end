@@ -32,9 +32,9 @@ export default defineComponent({
 
     return {
       title: "MCPC",
-      logo: "/amjilthome/logos/mcpc-gr.svg",
+      logo: "/amjilthome/logos/mcpc-gr-white.svg",
       logoDark: "/amjilthome/logos/mcpc-gr-white.svg",
-      logoSquire: "/amjilthome/logos/mcpc-s.svg",
+      logoSquire: "/amjilthome/logos/mcpc-s-white.svg",
       logoSquireDark: "/amjilthome/logos/mcpc-s-white.svg",
       base_url:base_url,
       darkMode

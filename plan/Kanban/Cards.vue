@@ -25,7 +25,6 @@
 <script>
 import TaskCard from "~~/plan/Kanban/components/TaskCard.vue";
 import draggable from "vuedraggable";
-
 export default {
   name: "Card",
   emits:["edit", "taskOrderChanged", "deleteTask"],
@@ -38,7 +37,7 @@ export default {
   },
   data(){
     return {
-      drag: false
+      drag: false,
     }
   },
   computed:{

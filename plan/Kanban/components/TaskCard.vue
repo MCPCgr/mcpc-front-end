@@ -12,7 +12,7 @@
         <ProjectTitle v-if="projectData && projectData.id" :project="projectData"></ProjectTitle>
       </div>
 
-      <div class="flex task-edit">
+      <div class="flex task-edit" v-if="projectPermission === 1 || projectPermission === 2">
         <EditOutlined v-if="!hideEditIcon"  />
         <a-popconfirm
           v-if="!disableDelete"
@@ -78,7 +78,7 @@ import Badge from "./Badge.vue";
 import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons-vue";
 import { getDate } from "~/utils/date";
 import ProjectTitle from "~~/plan/Project/ProjectTitle.vue";
-
+import { projectPermission } from "~/store/useSiteSettings"
 // Props are defined with the defineProps function
 const props = defineProps({
   priorities: Array,

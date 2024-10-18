@@ -15,13 +15,13 @@
           -webkit-overflow-scrolling: touch;" ref="container">
           <div>
               <div class="flex justify-between items-center">
-              <span class="text-gray-700 font-semibold font-sans tracking-wide text-sm flex-col mb-0 cursor-pointer" @click="startEditeStage(element)" v-if="element.id !== editingStage.id">{{ element.stage }} </span>
+              <span class="text-gray-700 font-semibold font-sans tracking-wide text-sm flex-col mb-0 cursor-pointer" @click="projectPermission === 1 || projectPermission === 2 ? startEditeStage(element) : ()=>{}" v-if="element.id !== editingStage.id">{{ element.stage }} </span>
               <a-form :model="editingStage" @focusout="deferStopCreateStage"  @finish="editStage" v-if="element.id === editingStage.id">
                 <a-form-item class="mb-0">
                   <a-input v-model:value="editingStage.stage" v-focus   placeholder="Ажлын нэр"/>
                 </a-form-item>
               </a-form>
-              <DropDown @deleteEvent="()=>deleteStage(element)" @editEvent="()=>startEditeStage(element)" />
+              <DropDown @deleteEvent="()=>deleteStage(element)" @editEvent="()=>startEditeStage(element)" v-if="projectPermission === 1 || projectPermission === 2" />
             </div>
             <Cards
               :tasks="element.tasks"
@@ -33,7 +33,7 @@
               @deleteTask="deleteTask"
               @taskOrderChanged="taskOrderChanged"
             />
-            <a-button @click="showNewTaskStageID = element.id" type="link" class="add-task-btn mt-1" v-if="showNewTaskStageID !== element.id">
+            <a-button @click="showNewTaskStageID = element.id" type="link" class="add-task-btn mt-1" v-if="showNewTaskStageID !== element.id && (projectPermission === 1 || projectPermission === 2)">
               <template #icon>
                         <span class="anticon align-top ant-btn-svg-icon" style="vertical-align: top">
                             <inline-svg
@@ -43,7 +43,7 @@
               </template>
               Ажилбар нэмэх
             </a-button>
-            <div class="mt-2"  v-if="showNewTaskStageID === element.id">
+            <div class="mt-2"  v-if="showNewTaskStageID === element.id && (projectPermission === 1 || projectPermission === 2)">
               <a-form :model="newTask" @focusout="deferStopCreateTask"  @finish="createTask">
                 <a-form-item>
                   <a-input v-model:value="newTask.task" v-focus   placeholder="Ажлын нэр"/>
@@ -57,7 +57,7 @@
         </div>
       </template>
     </draggable>
-    <div class="bg-gray-200 rounded-lg px-3 py-3 stage rounded mr-4 inline-block align-top">
+    <div class="bg-gray-200 rounded-lg px-3 py-3 stage rounded mr-4 inline-block align-top" v-if="projectPermission === 1 || projectPermission === 2">
       <p class="text-gray-700 font-semibold font-sans tracking-wide text-sm flex-col" v-if="!showAddStage">
         <a-button @click="showAddStage = true" type="link" class="add-task-btn mt-1" >
           <template #icon>
@@ -71,7 +71,7 @@
         </a-button>
 
       </p>
-      <div  v-if="showAddStage" class="mt-2">
+      <div  v-if="showAddStage && projectPermission === 1 || projectPermission === 2" class="mt-2">
         <a-form :model="newStage" @focusout="deferStopCreateStage"  @finish="createStage">
           <a-form-item>
             <a-input v-model:value="newStage.stage" v-focus   placeholder="Төлөв нэр"/>
@@ -91,7 +91,7 @@ import draggable from "vuedraggable";
 
 import Cards from "./Cards.vue";
 import DropDown from "../Common/Components/DropDown.vue";
-
+import { projectPermission } from "~/store/useSiteSettings"
 export default {
   name: "Kanban",
   emits:["createStage", "createTask", "stageOrderChanged", "editTask", "taskOrderChanged", "deleteTask", "deleteStage", "editStage"],
@@ -100,6 +100,7 @@ export default {
     priorities: Array,
     employees: Array,
     subTaskCounts: Array,
+
   },
   components: {
     DropDown,
@@ -109,7 +110,7 @@ export default {
   data() {
     return {
 
-
+      projectPermission,
       showAddStage: false,
       newTask: {
         task: "",
@@ -131,10 +132,14 @@ export default {
       this.editingStage = stage;
     },
     stageOrderEnd(e){
-      this.$emit("stageOrderChanged", e)
+      if(this.projectPermission === 1 || this.projectPermission === 2) {
+        this.$emit("stageOrderChanged", e)
+      }
     },
     taskOrderChanged(e){
-      this.$emit("taskOrderChanged", e)
+      if(this.projectPermission === 1 || this.projectPermission === 2) {
+        this.$emit("taskOrderChanged", e)
+      }
     },
     createTask() {
       if(this.newTask.task !== ""){

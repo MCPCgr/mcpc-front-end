@@ -1,6 +1,7 @@
 import { computed } from 'vue';
 import store from '~/store/index'
 const state = store.state
+export const projectPermission = computed(() => state["plan"].projectPermission)
 export const layoutMode = computed(() => state["app"].layout)
 export const userInfo = computed(() => state["app"].userInfo)
 export const navTheme = computed(() => state["app"].theme)

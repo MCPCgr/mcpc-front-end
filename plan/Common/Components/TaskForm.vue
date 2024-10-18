@@ -19,8 +19,10 @@
           class="w-full task-title"
           @blur="saveTask"
           @pressEnter="saveTask"
+          :disabled="projectPermission === 3"
           :placeholder="task.is_milestone ? 'Чухал үе шат' : 'Ажилбар нэр'"
         />
+
       </div>
     </div>
     <div class="flex justify-between mb-5 w-full flex-wrap" v-if="!task.is_milestone">
@@ -59,7 +61,7 @@
 
       <div class="flex justify-end">
         <div class="button-primary">
-          <a-button @click="addMembers" type="link" class="add-member-btn flex">
+          <a-button @click="addMembers" type="link" class="add-member-btn flex" v-if="projectPermission === 1 || projectPermission === 2">
             <template #icon>
               <span class="svg-icon-gray" style="vertical-align: top">
                 <inline-svg
@@ -110,12 +112,14 @@
             v-if="!task.is_milestone"
             v-model:value="dateRange"
             @change="dateChanged"
+            :disabled="projectPermission === 3"
             class="w-full task-date"
           />
           <a-date-picker
             v-if="task.is_milestone"
             v-model:value="dateRange[0]"
             @change="dateChanged"
+            :disabled="projectPermission === 3"
             class="w-full task-date"
           />
         </div>
@@ -136,6 +140,7 @@
             class="addable-select"
             placeholder="Зэрэглэл"
             allowClear
+            :disabled="projectPermission === 3"
             @change="saveTask"
           >
             <a-select-option
@@ -151,7 +156,7 @@
               {{ priority.priority }}
             </a-select-option>
           </a-select>
-          <a-button class="ml-2" @click="showAddPriorityModal = true">
+          <a-button class="ml-2" @click="showAddPriorityModal = true" v-if="projectPermission !== 3">
             <template #icon>
               <span class="svg-icon-gray">
                 <inline-svg src="/assets/icons/duotune/general/gen041.svg" />
@@ -180,6 +185,7 @@
           button-style="solid"
           size="small"
           @change="saveTask"
+          :disabled="projectPermission === 3"
         >
           <a-radio-button value="by_sub_task"
             >Дэд ажиллаас тооцоолох</a-radio-button
@@ -231,6 +237,7 @@
                 task.progress_calculate_type === 'by_manual' ||
                 subTaskGroups.length <= 0
               "
+              :disabled="projectPermission === 3"
               v-model:value="task.progress"
               class="task-percent"
               :max="100"
@@ -252,6 +259,7 @@
               @change="saveTask"
             />
             <a-button
+              :v-if="projectPermission !== 3"
               @click="completeTask"
               v-if="
                 task.progress_calculate_type === 'by_manual' ||
@@ -281,6 +289,7 @@
           <a-input-number
             class="task-percent"
             v-model:value="task.project_weight_progress"
+            :disabled="projectPermission === 3"
             placeholder="Төсөлд эзлэх жин хувиар"
             :max="100"
             :min="0"
@@ -334,12 +343,13 @@
                 <div class="flex justify-between items-center">
                   <a-input
                     v-model:value="element.title"
+                    :disabled="projectPermission === 3"
                     class="sub-task-title"
                     @change="delayChange"
                     @blur="storeSubTasks"
                     placeholder="Бүлэг ажлын нэр"
                   />
-                  <div class="sub-task-group-delete-btn">
+                  <div class="sub-task-group-delete-btn" v-if="projectPermission !== 3">
                     <a-popconfirm
                       title="Устгах уу?"
                       ok-text="Тийм"
@@ -386,7 +396,7 @@
             <a-button
               @click="showNewSubTaskGroupID = element.id"
               class="bg-gray-100 rounded-lg text-slate-600 mt-1 ml-9"
-              v-if="showNewSubTaskGroupID !== element.id"
+              v-if="showNewSubTaskGroupID !== element.id && projectPermission !== 3"
             >
               <span>Ажил нэмэх</span>
             </a-button>
@@ -457,7 +467,8 @@
     </div>
     <div
       class="flex justify-between items-center mb-5 mt-5"
-      v-if="!task.is_milestone"
+      v-if="!task.is_milestone && projectPermission !== 3"
+
     >
       <div>
         <inline-svg
@@ -468,6 +479,7 @@
       <div
         class="flex-grow mr-2 bg-gray-200 pb-1 rounded-lg cursor-pointer"
         @click="showNewSubTaskGroup = true"
+
       >
         <a-button type="link" class="add-sub-task-btn mt-1">
           Бүлэг ажил нэмэх
@@ -488,7 +500,7 @@
       width="400px"
       v-model:open="showAddPriorityModal"
     >
-      <section class="add-modal" v-if="showAddPriorityModal">
+      <section class="add-modal" v-if="showAddPriorityModal && (projectPermission === 1 || projectPermission === 2)">
         <div class="add-body">
           <dataform
             ref="formAddAble"
@@ -598,6 +610,7 @@
     </a-modal>
     <Comments :task_id="task.id" :emp_id="emp_id" :employees="employees" />
     <Success v-if="showSuccess" class=" absolute right-0 bottom-0 z-auto"></Success>
+    <div class="align-right" v-if="task.updated_at || task.created_at">Бүртгэсэн огноо: {{task.created_at ? $dateTime(task.created_at) : $dateTime(task.updated_at)}}</div>
   </div>
 </template>
 
@@ -615,7 +628,7 @@ import draggable from "vuedraggable";
 import Comments from "./Comment/Comments.vue";
 import Success from "~/components/animations/Success.vue";
 import {getUTCValue} from "@lambda-platform/lambda-vue/src/utils/date";
-
+import { projectPermission } from "~/store/useSiteSettings"
 export default {
   name: "TaskForm",
   components: {
@@ -640,6 +653,7 @@ export default {
   emits: ["onSuccess", "onReady", "subTaskUpdated", "deleteMilestone"],
   data() {
     return {
+      projectPermission,
       descriptionEditing: false,
       showNewSubTaskGroup: false,
       showAddPriorityModal: false,
@@ -669,6 +683,8 @@ export default {
         is_milestone: false,
         taskMembers: [],
         taskLinks: [],
+        created_at: null,
+        updated_at: null,
       },
       newSubTaskGroup: {
         title: "",
@@ -733,6 +749,7 @@ export default {
           sub_task_order: `${this.subTaskGroups[index].group_order}-${
             this.subTaskGroups[index].subTasks.length + 1
           }`,
+          assignedEmployees:[]
         };
 
         this.subTaskGroups[index].subTasks.push(subTask);
@@ -778,6 +795,8 @@ export default {
     },
     editModel(editingTask) {
       this.task.id = editingTask.id;
+      this.task.created_at = editingTask.created_at;
+      this.task.updated_at = editingTask.updated_at;
       this.task.parent_id = editingTask.parent_id;
       this.task.company_id = this.company_id;
       if (!editingTask.project_id) {
@@ -830,17 +849,21 @@ export default {
       this.getSubTasks();
     },
     saveTask() {
-      axios
-        .post(`https://api.amjilt.com/plan/store-task`, { ...this.task })
-        .then((res) => {
-          this.$emit("onSuccess", { ...res.data });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // if(this.projectPermission === 1 || this.projectPermission === 2) {
+        axios
+          .post(`https://api.amjilt.com/plan/store-task`, {...this.task})
+          .then((res) => {
+            this.$emit("onSuccess", {...res.data});
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      // }
     },
     startDescEdit() {
-      this.descriptionEditing = true;
+      if(this.projectPermission === 1 || this.projectPermission === 2){
+        this.descriptionEditing = true;
+      }
     },
     descCancel() {
       this.descriptionEditing = false;
@@ -1087,46 +1110,53 @@ export default {
       }
     },
     subGroupOrderEnd(e) {
-      if (e.newIndex !== e.oldIndex) {
-        for (let i = 0; i < this.subTaskGroups.length; i++) {
-          this.subTaskGroups[i].group_order = i + 1;
-          this.saveSubTaskOrder(i);
+      if(this.projectPermission !== 3) {
+        if (e.newIndex !== e.oldIndex) {
+          for (let i = 0; i < this.subTaskGroups.length; i++) {
+            this.subTaskGroups[i].group_order = i + 1;
+            this.saveSubTaskOrder(i);
+          }
+          this.updateSubTasksOrder();
         }
-        this.updateSubTasksOrder();
       }
+
     },
     subTaskOrderChanged(e) {
-      let groupFromIndex = this.subTaskGroups.findIndex(
-        (group) => group.id === e.from.id
-      );
-      let groupIndex = this.subTaskGroups.findIndex(
-        (group) => group.id === e.to.id
-      );
-      if (groupIndex >= 0 && groupFromIndex >= 0) {
-        if (groupIndex !== groupFromIndex) {
-          this.saveSubTaskOrder(groupFromIndex);
-          this.saveSubTaskOrder(groupIndex);
-        } else {
-          this.saveSubTaskOrder(groupIndex);
+      if(this.projectPermission !== 3) {
+        let groupFromIndex = this.subTaskGroups.findIndex(
+          (group) => group.id === e.from.id
+        );
+        let groupIndex = this.subTaskGroups.findIndex(
+          (group) => group.id === e.to.id
+        );
+        if (groupIndex >= 0 && groupFromIndex >= 0) {
+          if (groupIndex !== groupFromIndex) {
+            this.saveSubTaskOrder(groupFromIndex);
+            this.saveSubTaskOrder(groupIndex);
+          } else {
+            this.saveSubTaskOrder(groupIndex);
+          }
+          this.updateSubTasksOrder();
         }
-        this.updateSubTasksOrder();
       }
     },
     saveSubTaskOrder(groupIndex) {
-      if (groupIndex >= 0) {
-        for (
-          let i = 0;
-          i < this.subTaskGroups[groupIndex].subTasks.length;
-          i++
-        ) {
-          const taskOrder = i + 1;
-          const groupOrder = this.subTaskGroups[groupIndex].group_order;
+      if(this.projectPermission !== 3) {
+        if (groupIndex >= 0) {
+          for (
+            let i = 0;
+            i < this.subTaskGroups[groupIndex].subTasks.length;
+            i++
+          ) {
+            const taskOrder = i + 1;
+            const groupOrder = this.subTaskGroups[groupIndex].group_order;
 
-          this.subTaskGroups[groupIndex].subTasks[i].sub_task_group_id =
-            this.subTaskGroups[groupIndex].id;
-          this.subTaskGroups[groupIndex].subTasks[i].sub_task_order = `${
-            groupOrder <= 9 ? "0" + groupOrder.toString() : groupOrder
-          }-${taskOrder <= 9 ? "0" + taskOrder.toString() : taskOrder}`;
+            this.subTaskGroups[groupIndex].subTasks[i].sub_task_group_id =
+              this.subTaskGroups[groupIndex].id;
+            this.subTaskGroups[groupIndex].subTasks[i].sub_task_order = `${
+              groupOrder <= 9 ? "0" + groupOrder.toString() : groupOrder
+            }-${taskOrder <= 9 ? "0" + taskOrder.toString() : taskOrder}`;
+          }
         }
       }
     },

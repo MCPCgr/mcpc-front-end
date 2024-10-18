@@ -1,25 +1,27 @@
 <template>
-  <a-layout-sider
-    :class="['sider', isDesktop ? null : 'shadow', theme, fixSiderbar ? 'ant-fixed-sidemenu' : null ]"
-    :width="layoutMode === 'sidemenu' || !isDesktop ? '256px' :'120px'"
-    :collapsible="collapsible"
-    :collapsed-width="70"
-    v-model:collapsed="collapsed"
-    :trigger="null"
-  >
+  <div id="system-sidebar">
+    <a-layout-sider
+      :class="['newModelSider', isDesktop ? null : 'shadow', theme, fixSiderbar ? 'ant-fixed-sidemenu' : null ]"
+      :width="layoutMode === 'sidemenu' || !isDesktop ? '256px' :'120px'"
+      :collapsible="collapsible"
+      :collapsed-width="70"
+      v-model:collapsed="collapsed"
+      :trigger="null"
+    >
 
-    <logo :showTitle="!isDesktop ? false : layoutMode === 'sidemenu' && layoutMode !== 'levelmenu' && !collapsed"/>
-    <div class="btn btn-icon inline side-toggle rounded-sm shadow-sm" @click="toggle" v-if="layoutMode === 'sidemenu'">
+      <logo :showTitle="!isDesktop ? false : layoutMode === 'sidemenu' && layoutMode !== 'levelmenu' && !collapsed"/>
+      <div class="btn btn-icon inline side-toggle rounded-sm shadow-sm" @click="toggle" v-if="layoutMode === 'sidemenu'">
       <span class="svg-icon">
          <inline-svg v-if="collapsed" src="/assets/icons/duotune/arrows/arr080.svg"/>
          <inline-svg v-else           src="/assets/icons/duotune/arrows/arr079.svg"/>
       </span>
-    </div>
-    
-    <Menu :collapsed="collapsed" :theme="theme" :mode="mode" v-if="layoutMode === 'sidemenu' || !isDesktop"></Menu>
-    <LevelMenu :collapsed="collapsed" :theme="theme" :mode="mode" v-if="layoutMode === 'levelmenu' && isDesktop"></LevelMenu>
-    <Logout class="logout-btn-side bg-white dark:bg-slate-900" v-if="isDesktop" :show-title="!collapsed"/>
-  </a-layout-sider>
+      </div>
+
+      <Menu :collapsed="collapsed" :theme="theme" :mode="mode" v-if="layoutMode === 'sidemenu' || !isDesktop"></Menu>
+      <LevelMenu :collapsed="collapsed" :theme="theme" :mode="mode" v-if="layoutMode === 'levelmenu' && isDesktop"></LevelMenu>
+      <Logout class="logout-btn-side bg-white dark:bg-slate-900" v-if="isDesktop" :show-title="!collapsed"/>
+    </a-layout-sider>
+  </div>
 </template>
 
 <script lang="ts">
