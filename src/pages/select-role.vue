@@ -9,12 +9,6 @@
       </div>
       <div class="container" v-else>
         <div :class="`flex justify-center ${LMS_roles.length >= 1 && companies.length >= 1 ? 'grid sm:grid-cols-2 gap-x-2' : 'grid gap-x-1'}  md:gap-x-6 `">
-          <h1 class="align-center py-3 text-2xl/tight font-medium mt-3 mb-4 align-center" v-if="LMS_roles.length >= 1">
-            Amjilt Learn
-          </h1>
-          <h1 class="align-center py-3 text-2xl/tight font-medium mt-3 mb-4 align-center" v-if="companies.length >= 1">
-            Amjilt WORk, Booking, POS
-          </h1>
 
           <ul v-if="LMS_roles.length >= 1"
               item-layout="horizontal"

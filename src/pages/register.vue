@@ -1,16 +1,9 @@
 <template>
-
   <section class="bg-gray-100 dark:bg-slate-900 xl:py-18 py-14 flex justify-center">
     <div class="absolute top-0 inset-x-0 hidden sm:block">
       <img src="/amjilthome/images/white-wave.svg" alt="svg" class="w-full -scale-x-100">
     </div>
     <div class="container max-w-4xl px-6 mx-auto aos-init aos-animate" data-aos="fade-up" data-aos-duration="1500">
-      <div class="mb-6 bg-gray-200 p-4 rounded-lg">
-        <p class="text-lg font-semibold mb-2">{{ $t("home.solveHasSolution") }}</p>
-        <p>
-          {{ $t("home.introductionText") }}
-        </p>
-      </div>
 
       <div class="mb-0  bg-white dark:bg-slate-600 p-4 rounded-lg relative">
         <a-tabs v-model:activeKey="activeKey">
@@ -61,7 +54,7 @@ import { isMobile } from '~/utils/device'
 
 
 export default {
-  name: 'index',
+  name: 'register',
   components:{
     HomeMenuRender
   },

@@ -43,7 +43,8 @@
       <a-alert v-if="isError" :message="msg" type="error" class="text-black text-sm" showIcon></a-alert>
       <a-alert v-if="isSuccess" :message="msg" type="success" class="text-black text-sm" showIcon></a-alert>
       <div class="flex pt-4 space-x-2">
-        <span>{{ $t('auth.not_register') }}</span>  <div @click="updateAuthType"><nuxt-link to="/register"  class="font-semibold">{{$t('home.signUp')}}</nuxt-link></div>
+        <span>{{ $t('auth.not_register') }}</span><div @click="updateAuthType"></div>
+        <nuxt-link to="/register"  class="font-semibold">{{$t('home.signUp')}}</nuxt-link>
       </div>
     </a-form>
   </div>
@@ -53,6 +54,7 @@
 <script>
 
 import { MenuOutlined, UserOutlined } from '@ant-design/icons-vue';
+import register from "~/pages/register.vue"
 import {defineComponent, ref,} from 'vue';
 import Loader from "~/components/common/_loading.vue";
 import axios, {setToken} from "~/plugins/core/axios";
@@ -79,6 +81,7 @@ export default {
     Loader,
     MenuOutlined,
     UserOutlined,
+    register
   },
   computed: {
     lang() {

@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white dark:bg-slate-900">
     <Head>
-      <Title>Amjilt Home Page</Title>
+      <Title>Бүртгүүлэх</Title>
     </Head>
 
     <WebHeader/>

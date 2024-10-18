@@ -58,7 +58,7 @@
         </div>
 
         <div class="space-x-2 ">
-          <span>Бүртгэлгүй юу?</span>
+<!--          <span>Бүртгэлгүй юу?</span>-->
 
           <NuxtLink to="/register" class="font-bold">Бүртгүүлэх</NuxtLink>
         </div>
