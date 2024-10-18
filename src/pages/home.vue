@@ -118,7 +118,7 @@
             </div>
           </div>
         </div>
-        <CurrentSubscription @goToSubscription="goToSubscription"/>
+<!--        <CurrentSubscription @goToSubscription="goToSubscription"/>-->
         <div class="space-y-6 p-4">
           <div class="space-y-2">
             <div class="flex items-center space-x-2">

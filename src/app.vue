@@ -212,50 +212,7 @@ export default {
 
             }
 
-            fetch('https://lms.amjilt.com/api/general/user-permissions', {
-              method: 'GET',
-              headers: {
-                'Authorization': 'Bearer '+token
-              }
-            }).then(response => {
-
-              return response.json();
-            })
-              .then(data => {
-
-                if (Array.isArray(data)) {
-
-                  this.$store.commit(LMS_ROLES, data);
-
-                }
-
-              }).finally(()=>{
-              // if(this.$route.path === "/erp"){
-              //   const menu = ls.get(MENU);
-              //   const dashboardIndex = menu.findIndex(m=>m.id === "2d8e57d2-42db-92ca-12fc-0282fb4f777c")
-              //
-              //   if(dashboardIndex >= 0){
-              //
-              //     if(menu[dashboardIndex].children){
-              //       const financeIndex = menu[dashboardIndex].children.findIndex(m=>m.id === "a872f868-d600-99da-26a5-85b6bd4410ee");
-              //       const permissions = ls.get(PERMISSIONS)
-              //       if(financeIndex >= 0 && permissions.permissions){
-              //
-              //         if(permissions.permissions[menu[dashboardIndex].children[financeIndex].id] && permissions.permissions[menu[dashboardIndex].children[financeIndex].id].show){
-              //
-              //
-              //           this.loading = false;
-              //
-              //           this.$router.replace("/dashboard/finance");
-              //         }
-              //       }
-              //     }
-              //   }
-              // }
-
-
-              this.loading = false;
-            })
+            this.loading = false;
 
           } else {
 

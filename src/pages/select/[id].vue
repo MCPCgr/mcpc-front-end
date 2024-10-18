@@ -124,51 +124,8 @@ export default {
       this.$router.push("/company/create")
     },
     getLMS(){
-      this.lmsLoading = true;
-      fetch('https://lms.amjilt.com/api/general/user-permissions', {
-        method: 'GET',
-        headers: {
-          'Authorization': 'Bearer '+this.token
-        }
-      }).then(response => {
+      this.lmsLoading = false;
 
-        return response.json();
-      })
-        .then(data => {
-          if (Array.isArray(data)) {
-            this.LMS_roles = data;
-
-            if(this.LMS_roles.length === 1 && this.companies.length === 0){
-              this.selectLMS(this.LMS_roles[0]);
-            }else if(this.LMS_roles.length === 0 && this.companies.length === 1){
-              this.selectCompany(this.companies[0]);
-            } else {
-              this.lmsLoading = false
-            }
-
-
-          } else {
-            if(this.LMS_roles.length === 1 && this.companies.length === 0){
-              this.selectLMS(this.LMS_roles[0]);
-            } else if(this.LMS_roles.length === 0 && this.companies.length === 1){
-              this.selectCompany(this.companies[0]);
-            } else {
-              this.lmsLoading = false
-            }
-          }
-
-
-
-
-        })
-        .catch(error => {
-          if(this.LMS_roles.length === 0 && this.companies.length === 1){
-            this.selectCompany(this.companies[0]);
-          } else {
-            this.lmsLoading = false
-          }
-
-        });
     }
   },
   mounted() {

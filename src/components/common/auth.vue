@@ -133,8 +133,8 @@ export default {
       expiration.setTime(expiration.getTime() + (72000 * 60 * 60 * 1000)); // 72 hours from now
       const expires = `expires=${expiration.toUTCString()}`;
 
-      document.cookie = `token=${token}; Secure; Domain=.amjilt.com; Path=/; SameSite=Strict; ${expires}`;
-      document.cookie = `amjilt_token=${token}; Secure; Domain=.amjilt.com; Path=/; SameSite=Strict; ${expires}`;
+      document.cookie = `token=${token}; Secure; Domain=.mcpc.com; Path=/; SameSite=Strict; ${expires}`;
+      document.cookie = `mcpc_token=${token}; Secure; Domain=.mcpc.mn; Path=/; SameSite=Strict; ${expires}`;
 
     },
     login (formRef) {
@@ -233,34 +233,7 @@ export default {
 
 
 
-                    fetch('https://lms.amjilt.com/api/general/user-permissions', {
-                      method: 'GET',
-                      headers: {
-                        'Authorization': 'Bearer '+res.data.token
-                      }
-                    }).then(response => {
-
-                      return response.json();
-                    })
-                      .then(data => {
-
-                        if (Array.isArray(data)) {
-
-                          this.$store.commit(LMS_ROLES, data);
-
-
-                          this.$emit("onLogin", userInfo);
-
-                        } else {
-                          this.$emit("onLogin", userInfo);
-                        }
-                      })
-                      .catch(error => {
-                        console.log(error)
-                        this.$emit("onLogin", userInfo);
-
-                      });
-
+                    this.$emit("onLogin", userInfo);
                   }
                 })
 
