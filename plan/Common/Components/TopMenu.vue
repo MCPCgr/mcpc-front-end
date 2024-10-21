@@ -141,7 +141,7 @@
                     <template #icon>
                       <div class="flex items-center justify-center h-full w-full">
                         <img alt="avatar" class="h-full w-full object-cover bg-no-repeat bg-center"
-                             :src="avatar !== null && avatar !== '' ? 'https://mcpc.mn'+avatar : '/amjilt-erp/images/defaultAvatar.svg'">
+                             :src="avatar !== null && avatar !== '' ? 'https://erp.mcpc.mn'+avatar : '/amjilt-erp/images/defaultAvatar.svg'">
                       </div>
                     </template>
                   </a-avatar>

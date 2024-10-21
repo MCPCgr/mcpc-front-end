@@ -71,7 +71,7 @@
         </a-button>
 
       </p>
-      <div  v-if="showAddStage && projectPermission === 1 || projectPermission === 2" class="mt-2">
+      <div  v-if="showAddStage && (projectPermission === 1 || projectPermission === 2)" class="mt-2">
         <a-form :model="newStage" @focusout="deferStopCreateStage"  @finish="createStage">
           <a-form-item>
             <a-input v-model:value="newStage.stage" v-focus   placeholder="Төлөв нэр"/>

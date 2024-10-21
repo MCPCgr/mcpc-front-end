@@ -37,20 +37,20 @@ export default defineNuxtRouteMiddleware((to, from) => {
             if(company.value.subscription_active !== undefined){
               if(company.value.subscription_active === false){
 
-                Modal.confirm({
-                  title: `${company.company_name}. Танай байгууллагын систем ашиглах эрх хаагдсан байна борлуулалтын албатай холбогдоно уу?`,
-                  icon: h(ExclamationCircleOutlined),
-                  content: `Борлуулалтын албаны утас: 7711-6060`,
-                  okText: 'За',
-                  okType: 'danger',
-                  cancelText: 'Хаах',
-                  onOk() {
-                    window.location.replace('/work#contact-info');
-                  },
-                  onCancel() {
-                    window.location.replace('/');
-                  },
-                });
+                // Modal.confirm({
+                //   title: `${company.company_name}. Танай байгууллагын систем ашиглах эрх хаагдсан байна борлуулалтын албатай холбогдоно уу?`,
+                //   icon: h(ExclamationCircleOutlined),
+                //   content: `Борлуулалтын албаны утас: 7711-6060`,
+                //   okText: 'За',
+                //   okType: 'danger',
+                //   cancelText: 'Хаах',
+                //   onOk() {
+                //     window.location.replace('/work#contact-info');
+                //   },
+                //   onCancel() {
+                //     window.location.replace('/');
+                //   },
+                // });
               }
             }
           }

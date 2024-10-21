@@ -18,8 +18,24 @@
               </div>
 
               <div class="col-span-12 lg:col-span-7 flex items-center">
-                <div class="max-w-6xl  mx-auto space-y-10 flex flex-col justify-between h-full border border-white shadow-xl rounded-xl bg-white">
+                <div
+                  class="flex items-center space-x-4 pt-4"
+                  v-if="userInfo && userInfo.id"
+                >
+
+                  <nuxt-link to="/select-role" class="w-full group">
+                    <div
+                      class="border border-regal-purple bg-white transition-all duration-300 group-hover:shadow-5xl text-regal-purple text-sm py-2 px-4 rounded-full text-center"
+                    >
+                      Системд хандах
+                    </div>
+                  </nuxt-link>
+                </div>
+                <div v-else  class="max-w-6xl  mx-auto space-y-10 flex flex-col justify-between h-full border border-white shadow-xl rounded-xl bg-white">
+
                   <div class="space-y-2 max-w-2xl mx-auto md:pr-20">
+
+
 
                     <Auth
                       class="p-8"

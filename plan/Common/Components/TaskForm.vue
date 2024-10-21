@@ -34,7 +34,7 @@
               class="flex-none h-7 w-7 rounded-full ring-1 ring-white object-cover"
               :src="
                 user.avatar !== null && user.avatar !== ''
-                  ? 'https://mcpc.mn' + user.avatar
+                  ? 'https://erp.mcpc.mn' + user.avatar
                   : '/amjilt-erp/images/defaultAvatar.svg'
               "
               :key="user.id"
@@ -92,7 +92,7 @@
         <div v-if="descriptionEditing">
           <CK
             :value="task.description"
-            url="https://mcpc.mn"
+            url="https://erp.mcpc.mn"
             @on-finish="descChange"
             @onCancel="descCancel"
           ></CK>
@@ -544,7 +544,7 @@
                         class="h-full w-full object-cover bg-no-repeat bg-center"
                         :src="
                           avatar !== null && avatar !== ''
-                            ? 'https://mcpc.mn' + avatar
+                            ? 'https://erp.mcpc.mn' + avatar
                             : '/amjilt-erp/images/defaultAvatar.svg'
                         "
                       />
@@ -570,7 +570,7 @@
                       class="h-full w-full object-cover bg-no-repeat bg-center"
                       :src="
                         member.avatar !== null && member.avatar !== ''
-                          ? 'https://mcpc.mn' + member.avatar
+                          ? 'https://erp.mcpc.mn' + member.avatar
                           : '/amjilt-erp/images/defaultAvatar.svg'
                       "
                     />

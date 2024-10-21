@@ -4,7 +4,7 @@
       <div class="flex items-center">
         <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
             class="mr-2 w-6 h-6 rounded-full"
-            :src="employee.avatar !== null && employee.avatar !== '' ? 'https://mcpc.mn'+employee.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
+            :src="employee.avatar !== null && employee.avatar !== '' ? 'https://erp.mcpc.mn'+employee.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
             :alt="employee.firstname">{{ employee.firstname }}</p>
         <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate :datetime="commentDate" :title="commentDate">
           {{ commentDate }}</time></p>
@@ -42,7 +42,7 @@
     <div class="text-gray-500 dark:text-gray-400" v-if="!commenting" v-html="comment_text ? comment_text : comment.comment_text"></div>
 
     <div v-if="commenting">
-      <CK :value="comment_text" url="https://mcpc.mn" @on-finish="commentChange"
+      <CK :value="comment_text" url="https://erp.mcpc.mn" @on-finish="commentChange"
           @onCancel="commentCancel"></CK>
     </div>
     <a-button v-if="comment_text !== null && comment_text !== ''" @click="storeComment" :loading="loading" class="mt-2 inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-gray-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">Хадгалах</a-button>

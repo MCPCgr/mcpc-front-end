@@ -150,7 +150,7 @@ export default {
 
   methods: {
     setNow(){
-      // axios.get("https://mcpc.mn/lambda/krud/now").then(({data})=>{
+      // axios.get("https://erp.mcpc.mn/lambda/krud/now").then(({data})=>{
       //   this.attendanceLog.register_datetime = data.today;
       // });
     },

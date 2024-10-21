@@ -59,13 +59,13 @@
                   <div>
                     <div class="flex justify-start -space-x-1.5 rtl:space-x-reverse">
                       <div class="h-6 w-6 rounded-full ring-1 ring-slate-100">
-                        <img src="https://mcpc.mn/uploaded/images/2023/March/2-67165784_2636185136414435_8799794304764608512_n.jpg" alt="Mahedi Amin" class="w-full h-full rounded-full">
+                        <img src="https://erp.mcpc.mn/uploaded/images/2023/March/2-67165784_2636185136414435_8799794304764608512_n.jpg" alt="Mahedi Amin" class="w-full h-full rounded-full">
                       </div>
                       <div class="h-6 w-6 rounded-full ring-1 ring-slate-100">
-                        <img src="https://mcpc.mn/uploaded/images/2023/March/311005265_538029634992735_2080994582962977195_n.jpg" alt="Sovo Haldar" class="w-full h-full rounded-full">
+                        <img src="https://erp.mcpc.mn/uploaded/images/2023/March/311005265_538029634992735_2080994582962977195_n.jpg" alt="Sovo Haldar" class="w-full h-full rounded-full">
                       </div>
                       <div class="h-6 w-6 rounded-full ring-1 ring-slate-100">
-                        <img src="https://mcpc.mn/uploaded/images/2023/March/2-67165784_2636185136414435_8799794304764608512_n.jpg" alt="Rakibul Islam" class="w-full h-full rounded-full">
+                        <img src="https://erp.mcpc.mn/uploaded/images/2023/March/2-67165784_2636185136414435_8799794304764608512_n.jpg" alt="Rakibul Islam" class="w-full h-full rounded-full">
                       </div>
                       <div class="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 text-xs ring-2 ring-slate-100 dark:ring-slate-700 rounded-full h-6 w-6 flex flex-col justify-center items-center">
                         +2

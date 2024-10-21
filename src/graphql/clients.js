@@ -19,7 +19,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const gqlHttpLink = new HttpLink({
-  uri: 'https://mcpc.mn/query'
+  uri: 'https://erp.mcpc.mn/query'
 });
 
 export const client = new ApolloClient({

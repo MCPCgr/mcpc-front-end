@@ -113,34 +113,34 @@
       <div class="bg-white rounded-xl p-6 dashboard_shadow ">
         <div class="text-sm font-semibold text-second_color ">
           Ажилтан салбар нэгжээр
-          <Chart src="https://mcpc.mn/lambda/puzzle/schema-public/chart/994" projectDomain="https://mcpc.mn" :hideTitle="true" :filters="companyFilter"></Chart>
+          <Chart src="https://erp.mcpc.mn/lambda/puzzle/schema-public/chart/994" projectDomain="https://erp.mcpc.mn" :hideTitle="true" :filters="companyFilter"></Chart>
         </div>
       </div>
       <!-- Даатгуулагчийн төрлөөр -->
       <div class="bg-white rounded-xl p-6 dashboard_shadow ">
         <div class="text-sm font-semibold text-second_color ">Даатгуулагчийн төрлөөр
-          <Chart src="https://mcpc.mn/lambda/puzzle/schema-public/chart/988" projectDomain="https://mcpc.mn" :hideTitle="true" :filters="companyFilter" :labels="insured_types"></Chart>
+          <Chart src="https://erp.mcpc.mn/lambda/puzzle/schema-public/chart/988" projectDomain="https://erp.mcpc.mn" :hideTitle="true" :filters="companyFilter" :labels="insured_types"></Chart>
         </div>
       </div>
       <!-- Ажилласан хугацаагаар -->
       <div class="bg-white rounded-xl p-6 dashboard_shadow ">
         <div class="text-sm font-semibold text-second_color ">Ажилласан хугацаагаар
 
-          <Chart src="https://mcpc.mn/lambda/puzzle/schema-public/chart/990" projectDomain="https://mcpc.mn" :hideTitle="true" :filters="companyFilter" ></Chart>
+          <Chart src="https://erp.mcpc.mn/lambda/puzzle/schema-public/chart/990" projectDomain="https://erp.mcpc.mn" :hideTitle="true" :filters="companyFilter" ></Chart>
 
         </div>
       </div>
       <!-- Ажилтны төрлөөр -->
       <div class="bg-white rounded-xl p-6 dashboard_shadow h-full">
         <div class="text-sm font-semibold text-second_color ">Ажилтны төрлөөр
-          <Chart src="https://mcpc.mn/lambda/puzzle/schema-public/chart/991" projectDomain="https://mcpc.mn" :hideTitle="true" :filters="companyFilter" ></Chart>
+          <Chart src="https://erp.mcpc.mn/lambda/puzzle/schema-public/chart/991" projectDomain="https://erp.mcpc.mn" :hideTitle="true" :filters="companyFilter" ></Chart>
 
         </div>
       </div>
       <!-- Ажилтан боловсролоор -->
       <div class="bg-white rounded-xl p-6 dashboard_shadow h-full">
         <div class="text-sm font-semibold text-second_color ">Ажилтан боловсролоор
-          <Chart src="https://mcpc.mn/lambda/puzzle/schema-public/chart/992" projectDomain="https://mcpc.mn" :hideTitle="true" :filters="companyFilter" ></Chart>
+          <Chart src="https://erp.mcpc.mn/lambda/puzzle/schema-public/chart/992" projectDomain="https://erp.mcpc.mn" :hideTitle="true" :filters="companyFilter" ></Chart>
 
         </div>
       </div>

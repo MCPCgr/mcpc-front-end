@@ -18,7 +18,7 @@
               <h1 class="text-xl text-primary-color font-bold">{{ greetingMessage }}</h1>
               <div class="flex items-center space-x-3">
                 <div class="w-14 h-14">
-                  <img class="w-full h-full object-cover border border-white rounded-full" v-if="userInfo.avatar !== null" :src="IMAGE_URL + userInfo.avatar"/>
+                  <img class="w-full h-full object-cover border border-white rounded-full" v-if="userInfo.avatar !== null && userInfo.avatar" :src="IMAGE_URL + userInfo.avatar"/>
                   <img class="w-full h-full object-cover border border-white rounded-full" v-else src="/amjilt-erp/images/defaultAvatar.svg"/>
                 </div>
                 <h1 class="text-base text-primary-color font-bold leading-5">

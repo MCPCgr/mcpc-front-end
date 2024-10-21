@@ -3,7 +3,7 @@
     <div>
       <img
           class="mr-2 w-6 h-6 rounded-full mt-2.5"
-          :src="user.avatar !== null && user.avatar !== '' ? 'https://mcpc.mn'+user.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
+          :src="user.avatar !== null && user.avatar !== '' ? 'https://erp.mcpc.mn'+user.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
 
           :alt="user.first_name">
     </div>
@@ -15,7 +15,7 @@
 
       </div>
       <div v-if="commenting">
-        <CK :value="newComment" url="https://mcpc.mn" @on-finish="commentChange"
+        <CK :value="newComment" url="https://erp.mcpc.mn" @on-finish="commentChange"
             @onCancel="commentCancel"></CK>
       </div>
       <a-button v-if="newComment !== null && newComment !== ''" @click="storeComment" :loading="loading" class="mt-2 inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-gray-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">Илгээх</a-button>

@@ -55,7 +55,7 @@
 
 
         <datagrid ref="grid"
-                  url="https://mcpc.mn"
+                  url="https://erp.mcpc.mn"
                   :schemaID="1060"
                   :paginate="50"
 

@@ -50,7 +50,7 @@
       <div class="flex flex-grow justify-end mb-2 mt-2.5" v-if="users">
         <div class="flex flex-none -space-x-3">
           <img v-for="user in users.slice(0, 10)" class="flex-none h-7 w-7 rounded-full ring-1 ring-white object-cover"
-               :src="user.avatar !== null && user.avatar !== '' ? 'https://mcpc.mn'+user.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
+               :src="user.avatar !== null && user.avatar !== '' ? 'https://erp.mcpc.mn'+user.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
                :key="user.id"
                alt=""/>
           <div v-if="users.length > 10"

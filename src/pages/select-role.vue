@@ -29,12 +29,12 @@
             </li>
           </ul>
           <ul
-            v-if="companies.length >= 1"
+
             item-layout="horizontal"
             class="companies-list w-full  grid md:grid-cols-2 gap-x-2 md:gap-x-6"
             size="small"
           >
-            <li v-for="com in companies" :key="com.index" @click="selectCompany(com)"
+            <li v-for="com in companies" :key="com.index" @click="selectCompany(com)"   v-if="companies.length >= 1"
                 class="flex flex-col items-center justify-center px-6 py-2 cursor-pointer bg-white hover:bg-gray-100 dark:hover:bg-gray-600 w-full rounded-2xl h-40 mb-4
                 dark:bg-gray-700 relative shadow-xl overflow-hidden hover:shadow-2xl group p-5 transition-all duration-500 transform">
               <div :class="`avatar ${com.company_logo ? 'company-logo' : ''} `">
@@ -97,25 +97,26 @@ const selectCompany = (company) => {
   store.commit(USER_EXTRA_ROLE, {
     id:""
   });
-  if(company.subscription_active){
-    window.location.replace('/home');
-  } else {
-
-    Modal.confirm({
-      title: `${company.company_name}. Танай байгууллагын систем ашиглах эрх хаагдсан байна борлуулалтын албатай холбогдоно уу?`,
-      icon: h(ExclamationCircleOutlined),
-      content: `Борлуулалтын албаны утас: 7711-6060`,
-      okText: 'За',
-      okType: 'danger',
-      cancelText: 'Хаах',
-      onOk() {
-        window.location.replace('/work#contact-info');
-      },
-      onCancel() {
-        window.location.replace('/');
-      },
-    });
-  }
+  window.location.replace('/home');
+  // if(company.subscription_active){
+  //   window.location.replace('/home');
+  // } else {
+  //
+  //   Modal.confirm({
+  //     title: `${company.company_name}. Танай байгууллагын систем ашиглах эрх хаагдсан байна борлуулалтын албатай холбогдоно уу?`,
+  //     icon: h(ExclamationCircleOutlined),
+  //     content: `Борлуулалтын албаны утас: 7711-6060`,
+  //     okText: 'За',
+  //     okType: 'danger',
+  //     cancelText: 'Хаах',
+  //     onOk() {
+  //       window.location.replace('/work#contact-info');
+  //     },
+  //     onCancel() {
+  //       window.location.replace('/');
+  //     },
+  //   });
+  // }
 
 };
 
