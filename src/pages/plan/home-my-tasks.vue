@@ -48,7 +48,7 @@
 <!--                      <div-->
 <!--                        v-if="logo"-->
 <!--                        class="h-8 w-8 rounded-full overflow-hidden text-lg bg-slate-100 text-slate-900 dark:bg-slate-600 dark:text-slate-200 flex flex-col items-center justify-center font-normal capitalize">-->
-<!--                        <img :src="`https://api.amjilt.com/plan${logo}`" alt="">-->
+<!--                        <img :src="`https://plan.mcpc.mn${logo}`" alt="">-->
 <!--                      </div>-->
 <!--                    </div>-->
 <!--                  </template>-->
@@ -106,7 +106,7 @@
           :employees="companyEmployees"
           :companyEmployees="companyEmployees"
           :editMode="true"
-          url="https://api.amjilt.com/plan"
+          url="https://plan.mcpc.mn"
           @onSuccess="taskOnSuccessList"
           @subTaskUpdated="subTaskUpdated"
           @onReady="readyTaskEdit"
@@ -201,7 +201,7 @@ export default {
   methods: {
     getTasks(){
       this.loading = true;
-      axios.post("https://api.amjilt.com/plan/get-my-tasks", {}).then(res=>{
+      axios.post("https://plan.mcpc.mn/get-my-tasks", {}).then(res=>{
 
         this.projects = clearDuplicates(res.data.projects).map(p=>{
           return {

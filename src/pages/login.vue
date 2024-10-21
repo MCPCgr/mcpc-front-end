@@ -1,6 +1,6 @@
 <template>
   <Head>
-    <Title>Home</Title>
+    <Title>MCPCgr</Title>
   </Head>
   <section>
     <div class="bg-slate-50 w-screen h-screen flex items-center justify-center dark:bg-slate-900 lg:py-20">

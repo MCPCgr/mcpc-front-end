@@ -63,7 +63,7 @@
             :editMode="true"
             :company_id="company.company_id"
             :emp_id="user.emp_id"
-            url="https://api.amjilt.com/plan"
+            url="https://plan.mcpc.mn"
             @onSuccess="taskOnSuccess"
             @onReady="readyTaskEdit"
             @deleteMilestone="deleteMilestone"
@@ -110,7 +110,7 @@ export default {
     taskDateChanged(task) {
       const editedTask = findTaskById(task.id)
       this.updateTaskById(this.ganttTasks, task.id, {...editedTask, start: task.start_date, end: task.end_date});
-      axios.post("https://api.amjilt.com/plan/update-task-date", task).catch(e => {
+      axios.post("https://plan.mcpc.mn/update-task-date", task).catch(e => {
         console.log(e)
       })
     },
@@ -157,7 +157,7 @@ export default {
       this.ganttTasks = categories
       this.updateNestedData(this.ganttTasks, undefined, undefined);
       setTimeout(() => {
-        axios.post("https://api.amjilt.com/plan/update-task-level", flattenTasks(this.ganttTasks))
+        axios.post("https://plan.mcpc.mn/update-task-level", flattenTasks(this.ganttTasks))
             .catch(error => {
               console.log(error);
             });

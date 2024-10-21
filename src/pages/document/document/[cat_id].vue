@@ -217,7 +217,7 @@ async function callDocuments() {
       docTypeQuery = `&type_id=${selectedType.value}`
     }
     // const response = await axios.get(`http://127.0.0.1:8017/document/documents/${props.cat_id}?page=${page.value}${docTypeQuery}`);
-    const response = await axios.get(`https://api.amjilt.com/document/document/documents/${props.cat_id}?page=${page.value}${docTypeQuery}`);
+    const response = await axios.get(`https://document.mcpc.mn/document/documents/${props.cat_id}?page=${page.value}${docTypeQuery}`);
    if(response.data.data){
      documents.value = response.data.data;
      totalPage.value = response.data.last_page;

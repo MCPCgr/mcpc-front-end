@@ -22,7 +22,7 @@
         <div class="crud-page-body">
           <div class="dg-flex">
             <datagrid  ref="grid"
-                       :url="`https://api.amjilt.com/document`"
+                       :url="`https://document.mcpc.mn`"
                        schemaID="1219"
                        :paginate="50"
                        :fnView="view"

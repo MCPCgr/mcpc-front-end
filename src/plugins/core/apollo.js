@@ -27,7 +27,7 @@ const posClient = new ApolloClient({
 });
 
 export const inventoryHttpLink = new HttpLink({
-  uri: 'https://api.amjilt.com/inventory/query',
+  uri: 'https://inventory.mcpc.mn/query',
 
 })
 
@@ -36,7 +36,7 @@ const inventoryClient = new ApolloClient({
   cache: cache,
 });
 export const financeHttpLink = new HttpLink({
-  uri: 'https://api.amjilt.com/finance/query',
+  uri: 'https://finance.mcpc.mn/query',
 
 })
 
@@ -45,7 +45,7 @@ const financeClient = new ApolloClient({
   cache: cache,
 });
 export const attendanceHttpLink = new HttpLink({
-  uri: 'https://api.amjilt.com/attendance/query',
+  uri: 'https://attendance.mcpc.mn/query',
 })
 
 const attendanceClient = new ApolloClient({

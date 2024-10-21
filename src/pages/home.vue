@@ -207,7 +207,7 @@ const fetchNewsList = async () => {
 };
 
 const MyTaskCount = async () => {
-  axios.post("https://api.amjilt.com/plan/get-my-task-count", {}).then((response) => {
+  axios.post("https://plan.mcpc.mn/get-my-task-count", {}).then((response) => {
     count.value = response.data;
   })
 }

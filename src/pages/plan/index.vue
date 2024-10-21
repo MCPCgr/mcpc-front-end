@@ -90,7 +90,7 @@
         :hideTitle="true"
         :schemaID="1011"
         :title="``"
-        url="https://api.amjilt.com/plan"
+        url="https://plan.mcpc.mn"
         :onSuccess="projectOnSuccess"
         :do_render="showNewProjectModal"
 
@@ -116,7 +116,7 @@
         :editMode="editMode"
         :title="``"
         v-if="showEditProjectModal"
-        url="https://api.amjilt.com/plan"
+        url="https://plan.mcpc.mn"
         :onSuccess="projectOnSuccess"
         :onReady="editFormReady"
         :do_render="showEditProjectModal"
@@ -182,7 +182,7 @@ export default {
     },
     deleteProject(id){
 
-      axios.get(`https://api.amjilt.com/plan/delete-project/${id}`).then(() => {
+      axios.get(`https://plan.mcpc.mn/delete-project/${id}`).then(() => {
         this.getProjects();
       }).catch(error => {
         console.log(error);
@@ -196,7 +196,7 @@ export default {
       this.getProjects();
     },
     getProjects(){
-      axios.get("https://api.amjilt.com/plan/projects").then(res=>{
+      axios.get("https://plan.mcpc.mn/projects").then(res=>{
         this.loading = false;
         this.projects = clearDuplicates(res.data);
       }).catch(e=>{

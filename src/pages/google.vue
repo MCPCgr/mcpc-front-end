@@ -43,9 +43,9 @@
       onSuccess(resp) {
         let user = decodeCredential(resp.credential)
 
-        // prod https://api.amjilt.com/main/api/auth/google/login
+        // prod https://mcpc.mn/api/auth/google/login
         // dev http://127.0.0.1:8003/api/auth/google/login
-        axios.post("https://api.amjilt.com/main/api/auth/google/login", user).then((response) => {
+        axios.post("https://mcpc.mn/api/auth/google/login", user).then((response) => {
           if (response.status === 200) {
             // ls.set(USER_INFO, response.data.user_info)
             this.$store.commit(USER_INFO, response.data.user_info)

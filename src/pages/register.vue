@@ -6,31 +6,41 @@
     <div class="container max-w-4xl px-6 mx-auto aos-init aos-animate" data-aos="fade-up" data-aos-duration="1500">
 
       <div class="mb-0  bg-white dark:bg-slate-600 p-4 rounded-lg relative">
-        <a-tabs v-model:activeKey="activeKey">
-          <a-tab-pane key="1" tab="Ажилтан">
-            <dataform
-              ref="form"
-              :url="base_url"
-              :hideTitle="true"
-              schemaID="826"
-              :public="true"
-              :onSuccess="onSuccess"
-            >
-            </dataform>
-          </a-tab-pane>
-          <a-tab-pane key="2" tab="Байгууллага" force-render>
-            <dataform
-              ref="form"
-              :url="base_url"
-              :hideTitle="true"
-              schemaID="827"
-              :public="true"
-              :onSuccess="onSuccess"
-            >
-            </dataform>
-          </a-tab-pane>
+        <dataform
+          ref="form"
+          :url="base_url"
+          :hideTitle="true"
+          schemaID="826"
+          :public="true"
+          :onSuccess="onSuccess"
+        >
+        </dataform>
+<!--        -->
+<!--        <a-tabs v-model:activeKey="activeKey">-->
+<!--          <a-tab-pane key="1" tab="Ажилтан">-->
+<!--            <dataform-->
+<!--              ref="form"-->
+<!--              :url="base_url"-->
+<!--              :hideTitle="true"-->
+<!--              schemaID="826"-->
+<!--              :public="true"-->
+<!--              :onSuccess="onSuccess"-->
+<!--            >-->
+<!--            </dataform>-->
+<!--          </a-tab-pane>-->
+<!--          <a-tab-pane key="2" tab="Байгууллага" force-render>-->
+<!--            <dataform-->
+<!--              ref="form"-->
+<!--              :url="base_url"-->
+<!--              :hideTitle="true"-->
+<!--              schemaID="827"-->
+<!--              :public="true"-->
+<!--              :onSuccess="onSuccess"-->
+<!--            >-->
+<!--            </dataform>-->
+<!--          </a-tab-pane>-->
 
-        </a-tabs>
+<!--        </a-tabs>-->
         <!--          <div class="text-right md:absolute md:bottom-10 md:right-10">-->
         <!--            <nuxt-link to="/login" >Нэвтрэх хуудас</nuxt-link>-->
         <!--          </div>-->

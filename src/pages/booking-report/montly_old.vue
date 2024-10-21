@@ -159,7 +159,7 @@ export default {
     },
     methods: {
       getMonthlyReports() {
-        axios.get(`https://api.amjilt.com/booking/monthly-report?company_id=${this.userInfo.company_id}&start_date=2024-04-01&end_date=2024-04-30`).then((response) => {
+        axios.get(`https://booking.mcpc.mn/monthly-report?company_id=${this.userInfo.company_id}&start_date=2024-04-01&end_date=2024-04-30`).then((response) => {
           this.monthlyReports = response.data;
         })
       },

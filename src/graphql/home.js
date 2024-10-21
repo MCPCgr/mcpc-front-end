@@ -1,5 +1,5 @@
 import gql from 'graphql-tag';
-export const IMAGE_URL = 'https://api.amjilt.com/main'
+export const IMAGE_URL = 'https://mcpc.mn'
 
 import { base_url } from '~/consts/const'
 

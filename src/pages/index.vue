@@ -1,6 +1,6 @@
 <template>
   <Head>
-    <Title>Amjilt.com</Title>
+    <Title>MCPCgr</Title>
   </Head>
   <div class="amjilt-home">
     <Banner class="bg-slate-100" />

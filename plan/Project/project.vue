@@ -13,7 +13,7 @@
               <div
                   v-if="project.logo"
                 class="h-10 w-10 rounded-full overflow-hidden text-lg bg-slate-100 text-slate-900 dark:bg-slate-600 dark:text-slate-200 flex flex-col items-center justify-center font-normal capitalize">
-                <img :src="`https://api.amjilt.com/plan${project.logo}`" alt="">
+                <img :src="`https://plan.mcpc.mn${project.logo}`" alt="">
               </div>
             </div>
             <div class="font-medium text-sm   ml-2">
@@ -59,13 +59,13 @@
                   <div>
                     <div class="flex justify-start -space-x-1.5 rtl:space-x-reverse">
                       <div class="h-6 w-6 rounded-full ring-1 ring-slate-100">
-                        <img src="https://api.amjilt.com/main/uploaded/images/2023/March/2-67165784_2636185136414435_8799794304764608512_n.jpg" alt="Mahedi Amin" class="w-full h-full rounded-full">
+                        <img src="https://mcpc.mn/uploaded/images/2023/March/2-67165784_2636185136414435_8799794304764608512_n.jpg" alt="Mahedi Amin" class="w-full h-full rounded-full">
                       </div>
                       <div class="h-6 w-6 rounded-full ring-1 ring-slate-100">
-                        <img src="https://api.amjilt.com/main/uploaded/images/2023/March/311005265_538029634992735_2080994582962977195_n.jpg" alt="Sovo Haldar" class="w-full h-full rounded-full">
+                        <img src="https://mcpc.mn/uploaded/images/2023/March/311005265_538029634992735_2080994582962977195_n.jpg" alt="Sovo Haldar" class="w-full h-full rounded-full">
                       </div>
                       <div class="h-6 w-6 rounded-full ring-1 ring-slate-100">
-                        <img src="https://api.amjilt.com/main/uploaded/images/2023/March/2-67165784_2636185136414435_8799794304764608512_n.jpg" alt="Rakibul Islam" class="w-full h-full rounded-full">
+                        <img src="https://mcpc.mn/uploaded/images/2023/March/2-67165784_2636185136414435_8799794304764608512_n.jpg" alt="Rakibul Islam" class="w-full h-full rounded-full">
                       </div>
                       <div class="bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-300 text-xs ring-2 ring-slate-100 dark:ring-slate-700 rounded-full h-6 w-6 flex flex-col justify-center items-center">
                         +2

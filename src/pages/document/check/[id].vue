@@ -61,7 +61,7 @@ definePageMeta({
 })
 
 function editDocument(id) {
-  axios.get("https://api.amjilt.com/document/document/doc-edit/" + id).then(async ({data}) => {
+  axios.get("https://document.mcpc.mn/document/doc-edit/" + id).then(async ({data}) => {
     if (data && data.flow && data.document) {
 
 

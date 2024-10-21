@@ -3,7 +3,7 @@
     <div>
       <img
           class="mr-2 w-6 h-6 rounded-full mt-2.5"
-          :src="user.avatar !== null && user.avatar !== '' ? 'https://api.amjilt.com/main'+user.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
+          :src="user.avatar !== null && user.avatar !== '' ? 'https://mcpc.mn'+user.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
 
           :alt="user.first_name">
     </div>
@@ -15,7 +15,7 @@
 
       </div>
       <div v-if="commenting">
-        <CK :value="newComment" url="https://api.amjilt.com/main" @on-finish="commentChange"
+        <CK :value="newComment" url="https://mcpc.mn" @on-finish="commentChange"
             @onCancel="commentCancel"></CK>
       </div>
       <a-button v-if="newComment !== null && newComment !== ''" @click="storeComment" :loading="loading" class="mt-2 inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-gray-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">Илгээх</a-button>
@@ -72,7 +72,7 @@ export default {
     storeComment(){
       this.loading = true;
 
-      axios.post(`https://api.amjilt.com/plan/comment`, {
+      axios.post(`https://plan.mcpc.mn/comment`, {
         task_id:this.task_id,
         emp_id:this.emp_id,
         comment_text:this.newComment,
@@ -87,7 +87,7 @@ export default {
     },
     getComments(){
       this.loading = true;
-      axios.get(`https://api.amjilt.com/plan/comments/${this.task_id}`).then(res => {
+      axios.get(`https://plan.mcpc.mn/comments/${this.task_id}`).then(res => {
         this.comments = res.data;
         this.loading = false;
 

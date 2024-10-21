@@ -8,7 +8,7 @@
               <div class="flex items-center space-x-3">
                 <div class="flex flex-none -space-x-3">
                   <img v-for="user in users.slice(0, 7)" class="flex-none h-7 w-7 rounded-full ring-1 ring-white object-cover"
-                       :src="user.avatar !== null && user.avatar !== '' ? 'https://api.amjilt.com/main'+user.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
+                       :src="user.avatar !== null && user.avatar !== '' ? 'https://mcpc.mn'+user.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
                        :key="user.id"
                        alt=""/>
                   <div v-if="users.length > 7"
@@ -96,7 +96,7 @@
                     :editMode="false"
                     :onSuccess="onSuccess"
                     :onReady="ready"
-                    url="https://api.amjilt.com/plan"
+                    url="https://plan.mcpc.mn"
 
                     :do_render="showAddPriorityModal"
 
@@ -135,7 +135,7 @@
                   <template #icon>
                     <div class="flex items-center justify-center h-full w-full">
                       <img alt="avatar" class="h-full w-full object-cover bg-no-repeat bg-center"
-                           :src="avatar !== null && avatar !== '' ? 'https://api.amjilt.com/main'+avatar : '/amjilt-erp/images/defaultAvatar.svg'">
+                           :src="avatar !== null && avatar !== '' ? 'https://mcpc.mn'+avatar : '/amjilt-erp/images/defaultAvatar.svg'">
                     </div>
                   </template>
                 </a-avatar>
@@ -154,7 +154,7 @@
                 <template #icon>
                   <div class="flex items-center justify-center h-full w-full">
                     <img alt="avatar" class="h-full w-full object-cover bg-no-repeat bg-center"
-                         :src="member.avatar !== null && member.avatar !== '' ? 'https://api.amjilt.com/main'+member.avatar : '/amjilt-erp/images/defaultAvatar.svg'"/>
+                         :src="member.avatar !== null && member.avatar !== '' ? 'https://mcpc.mn'+member.avatar : '/amjilt-erp/images/defaultAvatar.svg'"/>
                   </div>
                 </template>
               </a-avatar>

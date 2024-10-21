@@ -432,7 +432,7 @@ let info = `Цахимаар баталгаажуулсан огноо цаг: <
     },
     async GetHistory(obj) {
       try {
-        const r = await axios.get(`https://api.amjilt.com/document/process/history/${this.id}`, );
+        const r = await axios.get(`https://document.mcpc.mn/process/history/${this.id}`, );
 
         let empIDs = [];
         if(r.data.statusHistories){

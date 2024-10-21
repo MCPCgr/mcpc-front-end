@@ -29,7 +29,7 @@ export default {
 
 
       console.log(resp, 'user')
-      // axios.post("https://api.amjilt.com/main/api/auth/google/login", user).then((response) => {
+      // axios.post("https://mcpc.mn/api/auth/google/login", user).then((response) => {
       //   if (response.status === 200) {
       //     ls.set(USER_INFO, response.data.user_info)
       //     this.$store.commit(USER_INFO, response.data.user_info)

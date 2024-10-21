@@ -81,7 +81,7 @@ export default {
   methods: {
     changeProjectSettings(project) {
       this.project = project
-      axios.post("https://api.amjilt.com/plan/update-project", project).catch(e => {
+      axios.post("https://plan.mcpc.mn/update-project", project).catch(e => {
         alert("error")
       })
     },
@@ -96,12 +96,12 @@ export default {
       }
 
       this.updateTaskById(this.ganttTasks, link.source, {...sourceTarget});
-      axios.post("https://api.amjilt.com/plan/create-task-link", link).catch(e => {
+      axios.post("https://plan.mcpc.mn/create-task-link", link).catch(e => {
         alert("error")
       })
     },
     deleteLinkReal(link) {
-      axios.get("https://api.amjilt.com/plan/delete-task-link/" + link.id).then(() => {
+      axios.get("https://plan.mcpc.mn/delete-task-link/" + link.id).then(() => {
         let sourceTarget = findTaskById(this.ganttTasks, link.source);
         sourceTarget.links = sourceTarget.links.filter(l => l.id !== link.id)
         this.updateTaskById(this.ganttTasks, link.source, {...sourceTarget});
@@ -239,7 +239,7 @@ export default {
     deleteMilestone(task) {
       this.showTaskModal = false;
       this.ganttTasks = this.ganttTasks.filter(t => t.id !== task.id);
-      axios.get(`https://api.amjilt.com/plan/delete-task/${task.id}`)
+      axios.get(`https://plan.mcpc.mn/delete-task/${task.id}`)
         .catch(error => {
           console.log(error);
         });
@@ -328,7 +328,7 @@ export default {
               this.stages[stageIndex].tasks[taskIndex]["project_id"] = this.$route.params.id;
               this.$refs.taskForm.editModel(this.stages[stageIndex].tasks[taskIndex]);
             } else {
-              axios.get(`https://api.amjilt.com/plan/task/${task.id}`).then(res => {
+              axios.get(`https://plan.mcpc.mn/task/${task.id}`).then(res => {
                 this.$refs.taskForm.editModel(res.data);
               }).catch(error => {
                 console.log(error);
@@ -344,14 +344,14 @@ export default {
       let stageIndex = this.stages.findIndex(stage => stage.id === task.stage_id);
       if (stageIndex >= 0) {
         this.stages[stageIndex].tasks = this.stages[stageIndex].tasks.filter(t => t.id !== task.id);
-        axios.get(`https://api.amjilt.com/plan/delete-task/${task.id}`)
+        axios.get(`https://plan.mcpc.mn/delete-task/${task.id}`)
           .catch(error => {
             console.log(error);
           });
       }
     },
     editStage(stage) {
-      axios.post(`https://api.amjilt.com/plan/update-stage`, stage)
+      axios.post(`https://plan.mcpc.mn/update-stage`, stage)
         .catch(error => {
           console.log(error);
         });
@@ -359,7 +359,7 @@ export default {
     deleteStage(stage) {
       this.stages = this.stages.filter(s => s.id !== stage.id);
 
-      axios.get(`https://api.amjilt.com/plan/delete-stage/${stage.id}`)
+      axios.get(`https://plan.mcpc.mn/delete-stage/${stage.id}`)
         .catch(error => {
           console.log(error);
         });
@@ -372,7 +372,7 @@ export default {
             stage_order: index + 1
           }
         })
-        axios.post("https://api.amjilt.com/plan/update-stage-order", changedStages)
+        axios.post("https://plan.mcpc.mn/update-stage-order", changedStages)
           .catch(error => {
             console.log(error);
           });
@@ -401,7 +401,7 @@ export default {
             task_order: `${stageOrder <= 9 ? "0" + stageOrder.toString() : stageOrder}-${taskOrder <= 9 ? "0" + taskOrder.toString() : taskOrder}`
           }
         });
-        axios.post("https://api.amjilt.com/plan/update-task-order", changedTasks)
+        axios.post("https://plan.mcpc.mn/update-task-order", changedTasks)
           .catch(error => {
             console.log(error);
           });
@@ -425,13 +425,13 @@ export default {
           task_order: `${stageOrder <= 9 ? "0" + stageOrder.toString() : stageOrder}-${taskOrder <= 9 ? "0" + taskOrder.toString() : taskOrder}`,
         };
         this.stages[stageIndex].tasks.push(newTask);
-        axios.post("https://api.amjilt.com/plan/create-task", newTask).catch(e => {
+        axios.post("https://plan.mcpc.mn/create-task", newTask).catch(e => {
           alert("error")
         })
       }
     },
     changeProjectMembers(members) {
-      axios.post("https://api.amjilt.com/plan/save-project-members/" + this.$route.params.id, members).then((res) => {
+      axios.post("https://plan.mcpc.mn/save-project-members/" + this.$route.params.id, members).then((res) => {
         this.members = res.data;
         this.getProjectEmployees();
       }).catch(e => {
@@ -447,7 +447,7 @@ export default {
         tasks: []
       };
       this.stages.push(newStage);
-      axios.post("https://api.amjilt.com/plan/create-stage", newStage).catch(e => {
+      axios.post("https://plan.mcpc.mn/create-stage", newStage).catch(e => {
         alert("error")
       })
     },
@@ -457,7 +457,7 @@ export default {
       this.getProject();
     },
     getProject() {
-      axios.post("https://api.amjilt.com/plan/project/" + this.$route.params.id, this.filterData).then(res => {
+      axios.post("https://plan.mcpc.mn/project/" + this.$route.params.id, this.filterData).then(res => {
 
         this.stages = res.data.stages.map(stage => {
           const tasks = res.data.tasks.filter(task => task.stage_id === stage.id && !task.is_milestone && !task.is_group).map(task => {
@@ -574,7 +574,7 @@ export default {
         });
     },
     saveNotificationSettings() {
-      axios.post("https://api.amjilt.com/plan/update-notification-settings/", this.notificationSettings).then(res => {
+      axios.post("https://plan.mcpc.mn/update-notification-settings/", this.notificationSettings).then(res => {
         notification["success"]({
           message: 'Тохиргоо хадгалагдлаа',
           description: 'Мэдэгдэлийн тохиргоог амжилттай хадгаллаа.',

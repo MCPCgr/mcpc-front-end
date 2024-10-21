@@ -8,7 +8,7 @@
       <div
         v-if="project.logo"
         class="h-8 w-8 rounded-full overflow-hidden text-lg bg-slate-100 text-slate-900 dark:bg-slate-600 dark:text-slate-200 flex flex-col items-center justify-center font-normal capitalize">
-        <img :src="`https://api.amjilt.com/plan${project.logo}`" alt="">
+        <img :src="`https://plan.mcpc.mn${project.logo}`" alt="">
       </div>
     </div>
     <div class=" text-sm leading-6 ml-2 dark:text-slate-200 text-slate-700">

@@ -154,8 +154,8 @@
       <div class="bg-white rounded-xl p-6 dashboard_shadow ">
         <div class="text-sm font-semibold text-second_color ">Борлуулалт харилцагчаар
           <Chart
-            src="https://api.amjilt.com/inventory/lambda/puzzle/schema-public/chart/996"
-            projectDomain="https://api.amjilt.com/inventory"
+            src="https://inventory.mcpc.mn/lambda/puzzle/schema-public/chart/996"
+            projectDomain="https://inventory.mcpc.mn"
             :hideTitle="true"
             :filters="[...salesCompanyFilter, ...saleDate]"
             v-if="!loading"
@@ -167,8 +167,8 @@
       <div class="bg-white rounded-xl p-6 dashboard_shadow ">
         <div class="text-sm font-semibold text-second_color ">Борлуулалт ажилтнаар
           <Chart
-            src="https://api.amjilt.com/inventory/lambda/puzzle/schema-public/chart/997"
-            projectDomain="https://api.amjilt.com/inventory"
+            src="https://inventory.mcpc.mn/lambda/puzzle/schema-public/chart/997"
+            projectDomain="https://inventory.mcpc.mn"
             :hideTitle="true"
             :filters="[...salesCompanyFilter, ...saleDate]"
             v-if="!loading"
@@ -179,8 +179,8 @@
       <div class="bg-white rounded-xl p-6 dashboard_shadow ">
         <div class="text-sm font-semibold text-second_color ">Бараа, ажил үйлчилгээ ангиллаар
           <Chart
-            src="https://api.amjilt.com/inventory/lambda/puzzle/schema-public/chart/999"
-            projectDomain="https://api.amjilt.com/inventory"
+            src="https://inventory.mcpc.mn/lambda/puzzle/schema-public/chart/999"
+            projectDomain="https://inventory.mcpc.mn"
             :hideTitle="true"
             v-if="!loading"
             :filters="companyFilter" ></Chart>
@@ -287,7 +287,7 @@ export default {
         end_date: searchData.end_date ? searchData.end_date.format('YYYY-MM-DD') : null,
       }).then(r => {
         this.POSsales = r.data.sales;
-        axios.post("https://api.amjilt.com/inventory/api/inventory-dashboard", {
+        axios.post("https://inventory.mcpc.mn/api/inventory-dashboard", {
           companyIDs: searchData.companyIDs,
           struct_id: searchData.struct_id,
           start_date: searchData.start_date ? searchData.start_date.format('YYYY-MM-DD') : null,

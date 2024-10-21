@@ -19,7 +19,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const gqlHttpLink = new HttpLink({
-  uri: 'https://api.amjilt.com/main/query'
+  uri: 'https://mcpc.mn/query'
 });
 
 export const client = new ApolloClient({
@@ -27,7 +27,7 @@ export const client = new ApolloClient({
   cache: cache,
 });
 const gqlHttpLinkNooking = new HttpLink({
-  uri: 'https://api.amjilt.com/booking/query'
+  uri: 'https://booking.mcpc.mn/query'
 });
 export const booking = new ApolloClient({
   link: authLink.concat(gqlHttpLinkNooking), // Concatenate the auth link and the HTTP link

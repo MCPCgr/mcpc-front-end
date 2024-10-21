@@ -110,7 +110,7 @@
           Орлого
 
           <datagrid ref="grid"
-                    url="https://api.amjilt.com/finance"
+                    url="https://finance.mcpc.mn"
                     :schemaID="1010"
                     :paginate="50"
                     v-if="!loading"
@@ -131,7 +131,7 @@
           Зарлага
           <datagrid ref="grid"
                     v-if="!loading"
-                    url="https://api.amjilt.com/finance"
+                    url="https://finance.mcpc.mn"
                     :schemaID="1009"
                     :paginate="50"
                     :filter="gridFilter"
@@ -151,8 +151,8 @@
       <div class="bg-white rounded-xl p-6 dashboard_shadow">
         <div class="text-sm font-semibold text-second_color ">
           Орлого төрлөөр
-          <Chart src="https://api.amjilt.com/finance/lambda/puzzle/schema-public/chart/1006" :hideTitle="true"
-                 :filters="[...companyFilter, ...financeDate]" projectDomain="https://api.amjilt.com/finance"></Chart>
+          <Chart src="https://finance.mcpc.mn/lambda/puzzle/schema-public/chart/1006" :hideTitle="true"
+                 :filters="[...companyFilter, ...financeDate]" projectDomain="https://finance.mcpc.mn"></Chart>
 
         </div>
 
@@ -161,8 +161,8 @@
       <div class="bg-white rounded-xl p-6 dashboard_shadow ">
         <div class="text-sm font-semibold text-second_color ">
           Зарлага төрлөөр
-          <Chart src="https://api.amjilt.com/finance/lambda/puzzle/schema-public/chart/1007" :hideTitle="true"
-                 :filters="[...companyFilter, ...financeDate]" projectDomain="https://api.amjilt.com/finance"></Chart>
+          <Chart src="https://finance.mcpc.mn/lambda/puzzle/schema-public/chart/1007" :hideTitle="true"
+                 :filters="[...companyFilter, ...financeDate]" projectDomain="https://finance.mcpc.mn"></Chart>
         </div>
       </div>
 
@@ -174,8 +174,8 @@
       <div class="bg-white rounded-xl p-6 dashboard_shadow">
         <div class="text-sm font-semibold text-second_color ">
           Нийт хөрөнгө, төрөл дүнгээр
-          <Chart src="https://api.amjilt.com/treasurer/lambda/puzzle/schema-public/chart/980" :hideTitle="true"
-                 :filters="treasurerFilter" projectDomain="https://api.amjilt.com/treasurer"></Chart>
+          <Chart src="https://treasurer.mcpc.mn/lambda/puzzle/schema-public/chart/980" :hideTitle="true"
+                 :filters="treasurerFilter" projectDomain="https://treasurer.mcpc.mn"></Chart>
 
         </div>
 
@@ -185,18 +185,18 @@
         <div class="text-sm font-semibold text-second_color ">
           Нийт хөрөнгө, төрөл тоо ширхэгээр
 
-          <Chart src="https://api.amjilt.com/treasurer/lambda/puzzle/schema-public/chart/981" :hideTitle="true"
-                 :filters="treasurerFilter" projectDomain="https://api.amjilt.com/treasurer"></Chart>
+          <Chart src="https://treasurer.mcpc.mn/lambda/puzzle/schema-public/chart/981" :hideTitle="true"
+                 :filters="treasurerFilter" projectDomain="https://treasurer.mcpc.mn"></Chart>
         </div>
       </div>
       <!-- Хөрөнгө салбар нэгжээр -->
       <div class="bg-white rounded-xl p-6 dashboard_shadow ">
         <div class="text-sm font-semibold text-second_color">
           Хөрөнгийн дүн салбар нэгжээр
-          <Chart src="https://api.amjilt.com/treasurer/lambda/puzzle/schema-public/chart/982"
+          <Chart src="https://treasurer.mcpc.mn/lambda/puzzle/schema-public/chart/982"
                  v-if="rawStructs.length >= 1" :hideTitle="true"
                  :filters="treasurerFilter" :labels="rawStructs"
-                 projectDomain="https://api.amjilt.com/treasurer"></Chart>
+                 projectDomain="https://treasurer.mcpc.mn"></Chart>
 
         </div>
       </div>
@@ -237,7 +237,7 @@ export default {
     },
     getFinanceData(searchData) {
       // axios.post("http://127.0.0.1:8007/finance-dashboard", {
-      axios.post("https://api.amjilt.com/finance/finance-dashboard", {
+      axios.post("https://finance.mcpc.mn/finance-dashboard", {
         companyIDs: searchData.companyIDs,
         struct_id: searchData.struct_id,
         start_date: searchData.start_date ? searchData.start_date.format('YYYY-MM-DD') : null,

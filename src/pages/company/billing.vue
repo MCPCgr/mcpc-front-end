@@ -55,7 +55,7 @@
 
 
         <datagrid ref="grid"
-                  url="https://api.amjilt.com/main"
+                  url="https://mcpc.mn"
                   :schemaID="1060"
                   :paginate="50"
 

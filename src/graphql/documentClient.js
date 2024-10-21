@@ -19,7 +19,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const gqlHttpLink = new HttpLink({
-  uri: 'https://api.amjilt.com/document/query'
+  uri: 'https://document.mcpc.mn/query'
 });
 
 export const documentClient = new ApolloClient({

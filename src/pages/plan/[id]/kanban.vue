@@ -62,7 +62,7 @@
           :employees="employees"
           :companyEmployees="companyEmployees"
           :editMode="true"
-          url="https://api.amjilt.com/plan"
+          url="https://plan.mcpc.mn"
           @onSuccess="taskOnSuccess"
           @subTaskUpdated="subTaskUpdated"
           @onReady="readyTaskEdit"

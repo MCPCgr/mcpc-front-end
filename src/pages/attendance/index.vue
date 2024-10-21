@@ -150,7 +150,7 @@ export default {
 
   methods: {
     setNow(){
-      // axios.get("https://api.amjilt.com/main/lambda/krud/now").then(({data})=>{
+      // axios.get("https://mcpc.mn/lambda/krud/now").then(({data})=>{
       //   this.attendanceLog.register_datetime = data.today;
       // });
     },
@@ -217,7 +217,7 @@ export default {
     registerAttendance () {
         this.attendanceLog.employee_id = this.employee_id;
         console.log("this.attendanceLog AFTER >>> ", this.attendanceLog)
-        axios.post("https://api.amjilt.com/attendance/api/attendance/manually", this.attendanceLog).then((response)=>{
+        axios.post("https://attendance.mcpc.mn/api/attendance/manually", this.attendanceLog).then((response)=>{
           if (response.data.status === "success") {
             this.attendanceLog = {
                 company_id: this.company.company_id,

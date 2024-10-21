@@ -265,7 +265,7 @@ function getEmployeesByID(empID) {
 async function GetHistory() {
   loading.value = true
   try {
-    const r = await axios.get(`https://api.amjilt.com/document/process/history/${props.id}`,);
+    const r = await axios.get(`https://document.mcpc.mn/process/history/${props.id}`,);
     let empIDs = [];
     if (r.data.statusHistories && r.data.statusHistories.length) {
       statusHistories.value = r.data.statusHistories.map(history => {

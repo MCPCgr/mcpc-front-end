@@ -106,7 +106,7 @@ const dataList = ref([]);
 
 const dailyReportList = () => {
   loading.value = true;
-  axios.get(`https://api.amjilt.com/booking/employee-report?company_id=${route.query.company_id}&service_date=${route.query.service_date}&artist_id=${route.query.artist_id}`).then((response) => {
+  axios.get(`https://booking.mcpc.mn/employee-report?company_id=${route.query.company_id}&service_date=${route.query.service_date}&artist_id=${route.query.artist_id}`).then((response) => {
     if (response.status === 200) {
       dataList.value = response.data;
       loading.value = false;

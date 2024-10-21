@@ -116,7 +116,7 @@
                     <div
                       class="w-10 h-10 border-2 border-white rounded-full bg-white dark:border-gray-800 overflow-hidden">
                       <img class="flex-none h-10 w-10 rounded-full ring-1 ring-white object-cover"
-                           :src="member.avatar !== null && member.avatar !== '' ? 'https://api.amjilt.com/main'+member.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
+                           :src="member.avatar !== null && member.avatar !== '' ? 'https://mcpc.mn'+member.avatar : '/amjilt-erp/images/defaultAvatar.svg'"
                            alt=""
                       />
                     </div>

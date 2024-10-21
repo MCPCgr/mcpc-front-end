@@ -48,7 +48,7 @@
         const endDate = new Date(currentDate.value);
         endDate.setDate(currentDate.value.getDate() + 20);
         // dev http://127.0.0.1:8019/monthly-report
-        axios.get(`https://api.amjilt.com/booking/monthly-report?company_id=${company.value.company_id}&start_date=${getDayFormat(startDate)}&end_date=${getDayFormat(endDate)}`).then((response) => {
+        axios.get(`https://booking.mcpc.mn/monthly-report?company_id=${company.value.company_id}&start_date=${getDayFormat(startDate)}&end_date=${getDayFormat(endDate)}`).then((response) => {
           monthlyReports.value = response.data
         })
       };

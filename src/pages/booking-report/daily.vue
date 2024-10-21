@@ -110,7 +110,7 @@ const dataList = ref([]);
 const dailyReportList = () => {
   loading.value = true;
   console.log(userInfo.value)
-  axios.get(`https://api.amjilt.com/booking/daily-report?company_id=${company.value.company_id}&service_date=${route.query.service_date}`).then((response) => {
+  axios.get(`https://booking.mcpc.mn/daily-report?company_id=${company.value.company_id}&service_date=${route.query.service_date}`).then((response) => {
       if (response.status === 200) {
         dataList.value = response.data;
         loading.value = false;

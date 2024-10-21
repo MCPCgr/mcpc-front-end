@@ -34,7 +34,7 @@
               class="flex-none h-7 w-7 rounded-full ring-1 ring-white object-cover"
               :src="
                 user.avatar !== null && user.avatar !== ''
-                  ? 'https://api.amjilt.com/main' + user.avatar
+                  ? 'https://mcpc.mn' + user.avatar
                   : '/amjilt-erp/images/defaultAvatar.svg'
               "
               :key="user.id"
@@ -92,7 +92,7 @@
         <div v-if="descriptionEditing">
           <CK
             :value="task.description"
-            url="https://api.amjilt.com/main"
+            url="https://mcpc.mn"
             @on-finish="descChange"
             @onCancel="descCancel"
           ></CK>
@@ -508,7 +508,7 @@
             :editMode="false"
             :onSuccess="onSuccessPriority"
             :onReady="readyPriority"
-            url="https://api.amjilt.com/plan"
+            url="https://plan.mcpc.mn"
             :do_render="showAddPriorityModal"
           ></dataform>
         </div>
@@ -544,7 +544,7 @@
                         class="h-full w-full object-cover bg-no-repeat bg-center"
                         :src="
                           avatar !== null && avatar !== ''
-                            ? 'https://api.amjilt.com/main' + avatar
+                            ? 'https://mcpc.mn' + avatar
                             : '/amjilt-erp/images/defaultAvatar.svg'
                         "
                       />
@@ -570,7 +570,7 @@
                       class="h-full w-full object-cover bg-no-repeat bg-center"
                       :src="
                         member.avatar !== null && member.avatar !== ''
-                          ? 'https://api.amjilt.com/main' + member.avatar
+                          ? 'https://mcpc.mn' + member.avatar
                           : '/amjilt-erp/images/defaultAvatar.svg'
                       "
                     />
@@ -851,7 +851,7 @@ export default {
     saveTask() {
       // if(this.projectPermission === 1 || this.projectPermission === 2) {
         axios
-          .post(`https://api.amjilt.com/plan/store-task`, {...this.task})
+          .post(`https://plan.mcpc.mn/store-task`, {...this.task})
           .then((res) => {
             this.$emit("onSuccess", {...res.data});
           })
@@ -1302,7 +1302,7 @@ export default {
         task_sub_task_groups: this.subTaskGroups,
       };
       axios
-        .post(`https://api.amjilt.com/plan/store-sub-task`, changedData)
+        .post(`https://plan.mcpc.mn/store-sub-task`, changedData)
         .then((r) => {
           this.$emit("subTaskUpdated", changedData);
         })
@@ -1312,7 +1312,7 @@ export default {
     },
     updateSubTasksOrder() {
       axios
-        .post(`https://api.amjilt.com/plan/update-sub-task-order`, {
+        .post(`https://plan.mcpc.mn/update-sub-task-order`, {
           task_id: this.task.id,
           project_id: this.task.project_id,
           task_sub_task_groups: this.subTaskGroups,
@@ -1324,7 +1324,7 @@ export default {
     getSubTasks() {
       this.subTaskGroups = [];
       axios
-        .get(`https://api.amjilt.com/plan/sub-tasks/${this.task.id}`)
+        .get(`https://plan.mcpc.mn/sub-tasks/${this.task.id}`)
         .then((res) => {
           if (res.data) {
             if (res.data.length >= 1) {

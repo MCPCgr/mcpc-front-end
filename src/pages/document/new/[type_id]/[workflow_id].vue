@@ -23,7 +23,7 @@
 
       <dataform
         ref="documentForm"
-        :url="`https://api.amjilt.com/document`"
+        :url="`https://document.mcpc.mn`"
         :hideTitle="true"
         schemaID="1218"
         :editMode="false"

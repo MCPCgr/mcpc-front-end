@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-export const IMAGE_URL = 'https://api.amjilt.com/main'
+export const IMAGE_URL = 'https://mcpc.mn'
 
 
 export const GET_STRUCTS= gql`
