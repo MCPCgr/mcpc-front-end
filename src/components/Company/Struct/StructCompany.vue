@@ -4,7 +4,7 @@
       <img :src="$base_url+company.company_logo" alt="avatar" v-if="company.company_logo">
       <inline-svg v-else src="/assets/icons/duotone/Home/Building.svg"/>
     </div>
-    <h2 class="text-center">{{company.company_name}}</h2>
+    <h2 class="text-center">{{company.company_name ? company.company_name : company.struct_name}}</h2>
   </div>
 </template>
 

@@ -14,7 +14,7 @@
 <!--     -->
 <!--    </div>-->
     <div class="copyright">
-      <span class="text-gray-400">Aмжилт © 2007 оноос хойш</span>
+      <span class="text-gray-400">MCPCgr ©</span>
     </div>
   </div>
 </template>
