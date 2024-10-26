@@ -42,10 +42,11 @@
 
       <a-alert v-if="isError" :message="msg" type="error" class="text-black text-sm" showIcon></a-alert>
       <a-alert v-if="isSuccess" :message="msg" type="success" class="text-black text-sm" showIcon></a-alert>
-      <div class="flex pt-4 space-x-2">
+      <div class="flex pt-4 space-x-2 mb-4">
         <span>{{ $t('auth.not_register') }}</span><div @click="updateAuthType"></div>
         <nuxt-link to="/register"  class="font-semibold">{{$t('home.signUp')}}</nuxt-link>
       </div>
+      <nuxt-link to="/privacy-policy"  class="font-normal">Нууцлалын бодлого</nuxt-link>
     </a-form>
   </div>
 
