@@ -14,7 +14,7 @@
 <!--     -->
 <!--    </div>-->
     <div class="copyright">
-      <span class="text-gray-400">MCPCgr ©</span>
+      <span class="text-gray-400">MCPCgr ©git </span>
     </div>
   </div>
 </template>
