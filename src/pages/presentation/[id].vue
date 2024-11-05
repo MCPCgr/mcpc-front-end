@@ -14,7 +14,7 @@
     <div v-if="currentPage">
       <h2>{{ currentPage.title }}</h2>
       <div v-html="currentPage.description"></div>
-      <PreMap v-if="currentPage.map_id" :map_id="currentPage.map_id" class="w-full presentation-map mt-1"></PreMap>
+      <PreMap v-if="currentPage.map_id" :current_page="currentPage" class="w-full presentation-map mt-1"></PreMap>
       <div v-if="currentPage.page_images" class="image-gallery">
         <a-image
           v-for="(image, index) in parsedImages"

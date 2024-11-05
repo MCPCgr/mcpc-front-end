@@ -14,8 +14,6 @@
         class="layer-list"
       ></LayerList>
       <div id="map">
-
-
       </div>
 
       <div id="popup" class="ol-popup text-[13px]">
@@ -43,7 +41,7 @@ import LayerList from "~/components/Map/LayerList.vue";
 import mapMixin from "~/map/mixin";
 
 export default {
-  props:["map_id"],
+  props:["current_page"],
   mixins: [mapMixin],
   components: {
     Scalebar,
@@ -56,8 +54,9 @@ export default {
   },
   data() {
     return {
-      mapID:this.map_id,
+      mapID:this.current_page.map_id,
       zoom:8,
+      pageElement:this.current_page,
     }
   }
 }

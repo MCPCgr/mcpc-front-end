@@ -192,8 +192,8 @@ export default {
       selectedType: 'Point',
       vectorSource: source,
       started: false,
-      clickedCoordinate: {}
-
+      clickedCoordinate: {},
+      pageElement:[]
     };
   },
   methods: {
@@ -252,8 +252,19 @@ export default {
               const properties = feature.getProperties();
               const coordinate = event.coordinate;
 
-              if (layer.values_.popup) {
-                content.innerHTML = `<p>${layer.get("layerTitle")}</p><p>${template(layer.values_.popup.template, properties)}</p>`;
+              if (layer.values_.popup && properties.id && this.pageElement.page_element.length) {
+                console.log(properties.id, this.pageElement.page_element)
+                const currentElement = this.pageElement.page_element.findIndex(obj => Number(obj.object_id) === properties.id);
+                console.log(currentElement)
+
+                content.innerHTML = `
+                    <p>${layer.get("layerTitle")}</p>
+                    <p>${template(layer.values_.popup.template, properties)}</p>
+                    <br>
+                    <span>${currentElement.element_title}</span>
+                    <span>${currentElement.element_images}</span>
+                    <span>${currentElement.element_description}</span>
+                `;
               } else {
                 content.innerHTML = `<p>${layer.get("layerTitle")}</p><p>Нэр: ${properties.name ? properties.name : properties.id}</p>`;
               }
