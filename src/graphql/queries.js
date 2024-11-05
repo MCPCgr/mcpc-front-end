@@ -645,8 +645,16 @@ query GetPresentations($id: String!) {
     position
     description
     parent_page_id
-    presentation_id
     page_images
+    presentation_id
+    page_element{
+      id
+      element_title
+      element_images
+      element_description
+      layer_id
+      object_id
+    }
     view_pages {
       id
       map_id
@@ -656,6 +664,14 @@ query GetPresentations($id: String!) {
       parent_page_id
       page_images
       presentation_id
+       page_element{
+      id
+      element_title
+      element_images
+      element_description
+      layer_id
+      object_id
+    }
     }
   }
 }
