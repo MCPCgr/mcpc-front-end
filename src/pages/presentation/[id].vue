@@ -22,7 +22,6 @@
           :src="image.thumbUrl"
           :alt="image.name"
           class="image-slide"
-
         />
       </div>
 

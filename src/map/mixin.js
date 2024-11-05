@@ -185,6 +185,7 @@ export default {
       ready: false,
 
       registerForm: false,
+      showElements: false,
       draw: null,
       modify: null,
 
@@ -252,25 +253,29 @@ export default {
               const properties = feature.getProperties();
               const coordinate = event.coordinate;
 
-              if (layer.values_.popup && properties.id && this.pageElement.page_element.length) {
-                console.log(properties.id, this.pageElement.page_element)
-                const currentElement = this.pageElement.page_element.findIndex(obj => Number(obj.object_id) === properties.id);
-                console.log(currentElement)
+              if (properties.id && this.pageElement.page_element.length) {
 
-                content.innerHTML = `
-                    <p>${layer.get("layerTitle")}</p>
-                    <p>${template(layer.values_.popup.template, properties)}</p>
-                    <br>
-                    <span>${currentElement.element_title}</span>
-                    <span>${currentElement.element_images}</span>
-                    <span>${currentElement.element_description}</span>
-                `;
+                const currentElement = this.pageElement.page_element.findIndex(obj => obj.object_id.toString() === properties.id.toString() && layer.values_.layerID === obj.layer_id);
+
+                if(currentElement >= 0){
+                 this.showElementDetail(this.pageElement.page_element[currentElement])
+                }
+
+
+                // content.innerHTML = `
+                //     <p>${layer.get("layerTitle")}</p>
+                //     <p>${template(layer.values_.popup.template, properties)}</p>
+                //     <br>
+                //     <span>${currentElement.element_title}</span>
+                //     <span>${currentElement.element_images}</span>
+                //     <span>${currentElement.element_description}</span>
+                // `;
               } else {
-                content.innerHTML = `<p>${layer.get("layerTitle")}</p><p>Нэр: ${properties.name ? properties.name : properties.id}</p>`;
+                // content.innerHTML = `<p>${layer.get("layerTitle")}</p><p>Нэр: ${properties.name ? properties.name : properties.id}</p>`;
               }
 
 
-              overlay.setPosition(coordinate);
+              // overlay.setPosition(coordinate);
 
               const featureType = feature.getType();
 
@@ -298,12 +303,12 @@ export default {
                 //    this.clearSelection()
               }
             } else if (layer.values_.id === "LocateLayer") {
-              const coordinate = event.coordinate;
-              var ll = transform(coordinate, 'EPSG:3857', 'EPSG:4326');
-              // Update the container with the new coordinates, rounded to a reasonable number of decimal places
-              let locationTxt = 'DD ' + ll[1].toFixed(5) + ',  ' + ll[0].toFixed(5);
-              content.innerHTML = `<p>Таны байршил</p><code>${locationTxt}</code>`;
-              overlay.setPosition(coordinate);
+              // const coordinate = event.coordinate;
+              // var ll = transform(coordinate, 'EPSG:3857', 'EPSG:4326');
+              // // Update the container with the new coordinates, rounded to a reasonable number of decimal places
+              // let locationTxt = 'DD ' + ll[1].toFixed(5) + ',  ' + ll[0].toFixed(5);
+              // content.innerHTML = `<p>Таны байршил</p><code>${locationTxt}</code>`;
+              // overlay.setPosition(coordinate);
 
 
             } else {
@@ -425,7 +430,7 @@ export default {
                         }),
                         stroke: new Stroke({
                           color: strokeColor,
-                          width: 1
+                          width: 2
                         }),
                         text: layer.label && layer.label.color ? new Text({
                           font: layer.label.font,
@@ -458,7 +463,7 @@ export default {
                       return new Style({
                         stroke: new Stroke({
                           color: strokeColor,
-                          width: 2
+                          width: 4
                         })
                       });
                     }

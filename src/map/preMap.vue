@@ -1,11 +1,11 @@
 <template>
   <div class="grid grid-cols-12 2xl:grid-cols-10 map-container h-screen bg-white dark:bg-slate-900">
-<!--    <div-->
-<!--      class="col-span-12 lg:col-span-4 xl:col-span-3 2xl:col-span-2 p-6 overflow-y-auto bg-white dark:bg-slate-900">-->
-<!--      <div class="menu_style bg-white dark:bg-slate-900">-->
+    <!--    <div-->
+    <!--      class="col-span-12 lg:col-span-4 xl:col-span-3 2xl:col-span-2 p-6 overflow-y-auto bg-white dark:bg-slate-900">-->
+    <!--      <div class="menu_style bg-white dark:bg-slate-900">-->
 
-<!--      </div>-->
-<!--    </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
     <div class="col-span-12 lg:col-span-12 xl:col-span-12 2xl:col-span-12 web-map">
       <LayerList
         :categories="categories"
@@ -26,6 +26,21 @@
       <Measure @startMeasure="startMeasure"/>
       <CoordinateBar/>
       <Locate/>
+      <a-modal width="70%" v-model:open="showElements" title="Харилцагчийн хүсэлт илгээх" :footer="null" force-render>
+
+        <h3 v-html="element.element_title"></h3>
+        <div v-html="element.element_description"></div>
+        <div v-if="element.element_images" >
+          <a-image
+            v-for="(image, index) in element.element_images"
+            :key="index"
+            :src="image.thumbUrl"
+            :alt="image.name"
+            class="image-slide"
+
+          />
+        </div>
+      </a-modal>
     </div>
   </div>
 </template>
@@ -41,7 +56,7 @@ import LayerList from "~/components/Map/LayerList.vue";
 import mapMixin from "~/map/mixin";
 
 export default {
-  props:["current_page"],
+  props: ["current_page"],
   mixins: [mapMixin],
   components: {
     Scalebar,
@@ -54,9 +69,24 @@ export default {
   },
   data() {
     return {
-      mapID:this.current_page.map_id,
-      zoom:8,
-      pageElement:this.current_page,
+      mapID: this.current_page.map_id,
+      zoom: 8,
+      pageElement: this.current_page,
+      showElements: false,
+      element: {
+        "id": "",
+        "element_title": "",
+        "element_images": [],
+        "element_description": "",
+        "layer_id": "1fc6ec13-4e16-4594-9a87-d19075d77340",
+        "object_id": "1"
+      }
+    }
+  },
+  methods: {
+    showElementDetail(element) {
+     this.element = {...element, element_images: element.element_images ? JSON.parse(element.element_images) : []};
+      this.showElements = true;
     }
   }
 }
