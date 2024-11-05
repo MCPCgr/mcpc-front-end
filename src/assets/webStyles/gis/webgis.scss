@@ -1,0 +1,86 @@
+@import "ol/ol.css";
+#map {
+  height: 100%;
+  width: 100%;
+}
+.ol-zoom {
+  .ol-zoom-out, .ol-zoom-in {
+    background: #FFFFFF !important;
+    color: #000000;
+    font-weight: 300;
+    height: 32px;
+    outline: none;
+    transition: all .3s cubic-bezier(.25,.8,.25,1);
+    width: 32px;
+    border: none;
+    margin: 0;
+    font-size: 20px;
+  }
+  .ol-zoom-in{
+    margin-bottom: 1px;
+  }
+  .ol-zoom-in:hover {
+    color: #3471f6;
+  }
+  .ol-zoom-out:hover {
+    color: #3471f6;
+  }
+}
+.ol-zoom {
+  top: 20px !important;
+  right: 8px !important;
+  left: unset;
+}
+.ol-control button:hover, .ol-control button:focus {
+  text-decoration: none;
+  outline: none !important;
+  color: var(--ol-foreground-color);
+}
+.ol-popup {
+  position: fixed;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid white;
+  bottom: 12px;
+  left: -50px;
+  min-width: 280px;
+}
+.ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+.ol-popup:before {
+  border-top-color: white;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 8px;
+  right: 10px;
+}
+.ol-popup-closer:after {
+  content: url('/images/gis-x-icon.svg');
+}
+.ol-zoom .ol-zoom-in {
+  border-radius: 4px 4px 0 0 !important;
+}
+.ol-zoom .ol-zoom-out {
+  border-radius: 0 0 4px 4px !important;
+}
+

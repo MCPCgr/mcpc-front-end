@@ -33,6 +33,7 @@ import CoordinateBar, {initCoordinate} from "./components/tools/coordinateBar.vu
 import Measure, {initMeasure, measureLayer, startMeasure} from "./components/tools/measure.vue";
 import Scalebar, {initScaleBar} from "./components/tools/scalebar.vue";
 import Starter from "./components/starter.vue";
+import {base_url} from "~/consts/const";
 import "./map.scss"
 import 'ol/ol.css';
 import {decodeHexewkbToWkt, to3D} from "~/dataform_custom/GIS/utils";
@@ -323,98 +324,139 @@ export default {
       this.categories.forEach((cat, catIndex) => {
         cat.layers.forEach((layer, layerIndex) => {
           if (layer.geometry_type === "Point" || layer.geometry_type === "Polygon" || layer.geometry_type === "LineString") {
-            if (layer.legends && layer.legends.length > 0) {
+            if (layer.legends && layer.legends.length > 0
+              && (!layer.is_permission || (layer.is_permission && this.user && layer.permissions.some(permission => permission.role_id === this.user.role)))) {
 
-              let fill_color = null
+              let fill_color = null;
               if (layer.geometry_type === "Polygon") {
-                fill_color = convertToRGBA(layer.legends[0].fill_color, 0.5)
+                fill_color = convertToRGBA(layer.legends[0].fill_color, 0.5);
               }
 
+              const sourceConfig = {
+                format: new MVT()
+              };
+
+              if (layer.is_permission && layer.org_id_field && layer.org_id_field !== "") {
+                const tokenData = localStorage.getItem('ACCESS_TOKEN');
+                if (tokenData) {
+                  const tokenObject = JSON.parse(tokenData);
+                  const tokenValue = tokenObject?.value;
+
+                  if (tokenValue) {
+                    sourceConfig.url = `${base_url}/tiles/${layer.id}/{z}/{x}/{y}/${tokenValue}.pbf`;
+                  } else {
+                    console.error("Token value is missing");
+                  }
+                } else {
+                  console.error("Access token is not found in localStorage");
+                }
+              } else {
+                sourceConfig.url = `${base_url}/tiles/${layer.id}/{z}/{x}/{y}.pbf`
+              }
 
               this.categories[catIndex].layers[layerIndex].layer = new VectorTileLayer({
                 declutter: true,
-
-                source: new VectorTileSource({
-                  format: new MVT(),
-                  url: `https://ub-engineering.gov.mn/maps/mapserver/${layer.id}/{z}/{x}/{y}.pbf`
-                }),
+                source: new VectorTileSource(sourceConfig),
                 style: (feature, resolution) => {
                   let geometry = feature.getGeometry();
-
+                  let styleOptions = {};
 
                   if (geometry.getType() === 'Point') {
                     let iconSrc = layer.legends[0].marker;
 
                     if (layer.unique_value_field && layer.legends.length > 1) {
+                      let value = feature.get(layer.unique_value_field);
+                      if (value) {
+                        let index = layer.legends.findIndex(u => u.unique_value.toString() === value.toString());
+                        if (index >= 0 && this.categories[catIndex].layers[layerIndex].legends[index].unique_visible) {
+                          iconSrc = layer.legends[index].marker;
+                        } else {
+                          return null;
+                        }
+                      }
+                    }
 
+                    return new Style({
+                      image: new Icon({
+                        src: `${base_url}${iconSrc}`,
+                        scale: 25 / Math.max(25, 25),
+                        anchor: [0.5, 1],
+                        anchorXUnits: 'fraction',
+                        anchorYUnits: 'fraction'
+                      })
+                    });
+
+                  } else if (geometry.getType() === 'Polygon') {
+                    let strokeColor = layer.legends[0].stroke_color;
+                    let fillColor = fill_color;
+
+                    if (layer.unique_value_field && layer.legends.length > 1) {
                       let value = feature.get(layer.unique_value_field);
                       if (value) {
                         let index = layer.legends.findIndex(u => u.unique_value.toString() === value.toString());
 
-                        if (index >= 0) {
-                          if (this.categories[catIndex].layers[layerIndex].legends[index].unique_visible) {
-                            if (index >= 0) {
-                              iconSrc = layer.legends[index].marker;
-                            }
-                            // if (feature.get('tp_number') % 2 === 0) {
-                            //   iconSrc = '/ub-enginering/images/zurchil.svg';
-                            // }
-                          } else {
-                            return null;
-                          }
+                        if (index >= 0 && this.categories[catIndex].layers[layerIndex].legends[index].unique_visible) {
+
+                          fillColor = convertToRGBA(layer.legends[index].fill_color, 0.5);
+                          strokeColor = layer.legends[index].stroke_color;
+                        } else {
+                          return null;
                         }
                       }
-
                     }
-                    return new Style({
-                      image: new Icon({
-                        src: `https://ub-engineering.gov.mn${iconSrc}`,
-                        scale: 25 / Math.max(25, 25),
-                        anchor: [0.5, 1],
-                        anchorXUnits: 'fraction', // 'fraction' or 'pixels'
-                        anchorYUnits: 'fraction' // 'fraction' or 'pixels'
-                      })
-                    });
-                  } else if (geometry.getType() === 'Polygon') {
-                    if(window.selectionLayerID === layer.id && window.selectionFeatureID === feature.getId()) {
 
-                      return highlightStyle
+                    if (window.selectionLayerID === layer.id && window.selectionFeatureID === feature.get(layer.id_fieldname)) {
+                      return highlightStyle;
                     } else {
                       return new Style({
                         fill: new Fill({
-                          color: fill_color
+                          color: fillColor
                         }),
                         stroke: new Stroke({
-                          color: layer.legends[0].stroke_color,  // The color of the stroke. Can be in RGB, RGBA, hex format etc.
-                          width: 1  // The width of the stroke.
+                          color: strokeColor,
+                          width: 1
                         }),
                         text: layer.label && layer.label.color ? new Text({
                           font: layer.label.font,
                           fill: new Fill({
-                            color: layer.label.color // Text color
+                            color: layer.label.color
                           }),
-                          text: feature.get(layer.label.field)  // Assuming the attribute containing the label is 'name'
+                          text: feature.get(layer.label.field)
                         }) : undefined
                       });
                     }
 
                   } else if (geometry.getType() === 'LineString') {
-                    if(window.selectionLayerID === layer.id && window.selectionFeatureID === feature.getId()) {
+                    let strokeColor = layer.legends[0].fill_color;
 
-                      return lineHighlightStyle
+                    if (layer.unique_value_field && layer.legends.length > 1) {
+                      let value = feature.get(layer.unique_value_field);
+                      if (value) {
+                        let index = layer.legends.findIndex(u => u.unique_value.toString() === value.toString());
+                        if (index >= 0 && this.categories[catIndex].layers[layerIndex].legends[index].unique_visible) {
+                          strokeColor = layer.legends[index].fill_color;
+                        } else {
+                          return null;
+                        }
+                      }
+                    }
+
+                    if (window.selectionLayerID === layer.id && window.selectionFeatureID === feature.getId()) {
+                      return lineHighlightStyle;
                     } else {
                       return new Style({
-
                         stroke: new Stroke({
-                          color: layer.legends[0].fill_color,  // The color of the stroke. Can be in RGB, RGBA, hex format etc.
-                          width: 2  // The width of the stroke.
+                          color: strokeColor,
+                          width: 2
                         })
                       });
                     }
                   }
                 }
               });
+
               this.categories[catIndex].layers[layerIndex].layer.set('layerID', layer.id);
+              this.categories[catIndex].layers[layerIndex].layer.set('idField', layer.id_fieldname);
               this.categories[catIndex].layers[layerIndex].layer.set('popup', {
                 template: layer.popup_template
               });
@@ -424,10 +466,10 @@ export default {
               this.map.addLayer(this.categories[catIndex].layers[layerIndex].layer);
             }
           }
-        })
-      })
-
+        });
+      });
     },
+
     mapInit() {
       /**
        * Elements that make up the popup.

@@ -12,7 +12,7 @@
           <!--                  <img alt="" class="w-5 h-5" :src="category.icon"/>-->
           <img alt=""
                class="w-5 h-5 flex-none text-white transition-all duration-300 group-icon"
-               :src="`https://ub-engineering.gov.mn${category.icon}`"/>
+               :src="`https://erp.mcpc.mn${category.icon}`"/>
 
         </div>
       </template>
@@ -28,7 +28,7 @@
             <rect width="18" height="3" :fill="layer.legends[0].fill_color"/>
           </svg>
 
-          <img alt="" class="w-6 h-6" :src="`https://ub-engineering.gov.mn${layer.legends[0].marker}`" v-if="layer.geometry_type === 'Point'"/>
+          <img alt="" class="w-6 h-6" :src="`https://erp.mcpc.mn${layer.legends[0].marker}`" v-if="layer.geometry_type === 'Point'"/>
         </template>
 
         <div @click="changeLayerVisible(catIndex, layer.id)"
@@ -38,7 +38,7 @@
             <span class="dark:text-white">{{ layer.layer_title }}</span>
           </div>
           <img alt="" class="w-4 h-4"
-               :src="layer.is_visible ? '/ub-enginering/images/Eye.svg' : '/ub-enginering/images/Eyeclose.svg'"/>
+               :src="layer.is_visible ? '/images/Eye.svg' : '/images/Eyeclose.svg'"/>
         </div>
 
       </a-menu-item>
@@ -54,7 +54,7 @@
             <rect width="18" height="3" :fill="layer.legends[0].fill_color"/>
           </svg>
 
-          <img alt="" class="w-6 h-6" :src="`https://ub-engineering.gov.mn${layer.legends[0].marker}`" v-if="layer.geometry_type === 'Point'"/>
+          <img alt="" class="w-6 h-6" :src="`https://erp.mcpc.mn${layer.legends[0].marker}`" v-if="layer.geometry_type === 'Point'"/>
         </template>
 
         <template #title>
@@ -65,7 +65,7 @@
               <span class="dark:text-white">{{ layer.layer_title }}</span>
             </div>
             <img alt="" class="w-4 h-4 cursor-pointer"
-                 :src="layer.is_visible ? '/ub-enginering/images/Eye.svg' : '/ub-enginering/images/Eyeclose.svg'"/>
+                 :src="layer.is_visible ? '/images/Eye.svg' : '/images/Eyeclose.svg'"/>
           </div>
         </template>
         <a-menu-item :key="`${uniqueValueInfoIndex}`"
@@ -79,7 +79,7 @@
               <rect width="18" height="3" :fill="layer.legends[0].fill_color"/>
             </svg>
 
-            <img alt="" class="w-6 h-6" :src="`https://ub-engineering.gov.mn${legend.marker}`" v-if="legend.geometry_type === 'Point'"/>
+            <img alt="" class="w-6 h-6" :src="`https://erp.mcpc.mn${legend.marker}`" v-if="legend.geometry_type === 'Point'"/>
           </template>
           <div @click="changeLayerUniqueVisible(catIndex, layer, legend)"
                class="cursor-pointer flex items-center justify-between py-3">
@@ -88,7 +88,7 @@
               <span class="dark:text-white">{{ legend.unique_value_label }}</span>
             </div>
             <img alt="" class="w-4 h-4"
-                 :src="legend.unique_visible ? '/ub-enginering/images/Eye.svg' : '/ub-enginering/images/Eyeclose.svg'"/>
+                 :src="legend.unique_visible ? '/images/Eye.svg' : '/images/Eyeclose.svg'"/>
           </div>
         </a-menu-item>
       </a-sub-menu>

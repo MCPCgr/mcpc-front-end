@@ -14,7 +14,6 @@
     <div v-if="currentPage">
       <h2>{{ currentPage.title }}</h2>
       <div v-html="currentPage.description"></div>
-
       <div v-if="currentPage.page_images" class="image-gallery">
         <a-image
           v-for="(image, index) in parsedImages"
@@ -25,6 +24,7 @@
           style="margin: 10px;"
         />
       </div>
+      <PreMap v-if="currentPage.map_id" :map_id="currentPage.map_id" class="w-full h-3/4"></PreMap>
     </div>
   </div>
 </template>
@@ -33,6 +33,7 @@
 import {onMounted, ref} from 'vue';
 import {useRoute, useRouter} from 'vue-router';
 import {getPre} from '~/graphql/presentations';
+import PreMap from '~/map/preMap.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -57,6 +58,7 @@ function getData(id) {
   getPre(id).then((res) => {
     pages.value = res.v_pages;
     currentPage.value = res.v_pages[0].view_pages[0];
+    // currentPage.value = res.v_pages[0];
     current.value = currentPage.value.id;
     parseImages();
     buildMenuItems();
