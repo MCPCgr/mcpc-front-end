@@ -1,0 +1,118 @@
+<template>
+  <div class="top-menu flex items-center ">
+    <!-- Logo on the left -->
+    <div class="logo-container px-4">
+      <img src="https://erp.mcpc.mn/amjilthome/logos/mcpc-gr.svg" alt="Logo" class="h-10 w-auto cursor-pointer" />
+    </div>
+
+    <!-- Ant Design Menu component -->
+    <a-menu mode="horizontal" :items="items" @select="handleMenuSelect" class="flex-1" />
+  </div>
+
+  <div class="page-content">
+    <!-- Display page content -->
+    <div v-if="currentPage">
+      <h2>{{ currentPage.title }}</h2>
+      <div v-html="currentPage.description"></div>
+
+      <div v-if="currentPage.page_images" class="image-gallery">
+        <a-image
+          v-for="(image, index) in parsedImages"
+          :key="index"
+          :src="image.thumbUrl"
+          :alt="image.name"
+          :width="200"
+          style="margin: 10px;"
+        />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import {onMounted, ref} from 'vue';
+import {useRoute, useRouter} from 'vue-router';
+import {getPre} from '~/graphql/presentations';
+
+const route = useRoute();
+const router = useRouter();
+
+const pages = ref([]);
+const currentPage = ref(null);
+const parsedImages = ref([]);
+const items = ref([]);
+const current = ref(null);
+
+function getData(id) {
+  getPre(id).then((res) => {
+    pages.value = res.v_pages;
+    currentPage.value = res.v_pages[0];
+    current.value = currentPage.value.id;
+    parseImages();
+    buildMenuItems();
+    console.log(res);
+  });
+}
+
+function parseImages() {
+  // Check if the current page has page_images and parse them
+  if (currentPage.value && currentPage.value.page_images) {
+    parsedImages.value = JSON.parse(currentPage.value.page_images);
+  }
+}
+
+function navigateToPage(page) {
+  currentPage.value = page;
+
+  parseImages();
+}
+
+function handleMenuSelect(page) {
+
+  navigateToPage(page.item);
+}
+
+function buildMenuItems() {
+  items.value = pages.value.map((page) => {
+    const menuItem = {
+      key: page.id,
+      label: page.title,
+      ...page
+    };
+    if (page.view_pages) {
+      menuItem.children = page.view_pages.map((subPage) => ({
+        key: subPage.id,
+        label: subPage.title,
+        ...subPage
+      }));
+    }
+    return menuItem;
+  });
+}
+
+definePageMeta({
+  layout: 'presentation',
+});
+
+onMounted(() => {
+  getData(route.params.id);
+});
+</script>
+
+<style scoped>
+.top-menu {
+  width: 100%;
+
+  padding: 10px;
+}
+
+.page-content {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>

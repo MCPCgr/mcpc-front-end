@@ -632,3 +632,31 @@ mutation createFeedbackCompany($input: FeedbackCompanyInput!) {
   }
 }
 `;
+export const GET_PRESENTATION= gql`
+query GetPresentations($id: String!) {
+  v_pages(
+    filters: [{column: "presentation_id", condition: equals, value: $id}, {column: "parent_page_id", condition: isNull, value:""}]
+    sorts: [{column: "position", order: asc}],
+        subSorts: [{column: "position", order: asc, table:"view_pages"}]
+  ) {
+    id
+    map_id
+    title
+    position
+    description
+    parent_page_id
+    presentation_id
+    page_images
+    view_pages {
+      id
+      map_id
+      title
+      position
+      description
+      parent_page_id
+      page_images
+      presentation_id
+    }
+  }
+}
+`;
