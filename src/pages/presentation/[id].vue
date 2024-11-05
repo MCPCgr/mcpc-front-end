@@ -21,8 +21,8 @@
           :key="index"
           :src="image.thumbUrl"
           :alt="image.name"
-          class="w-full"
-          style="margin: 10px;"
+          class="image-slide"
+
         />
       </div>
 
@@ -58,8 +58,11 @@ function toggleFullScreen() {
 function getData(id) {
   getPre(id).then((res) => {
     pages.value = res.v_pages;
-    currentPage.value = res.v_pages[0].view_pages[0];
-    // currentPage.value = res.v_pages[0];
+    if(res.v_pages[0].view_pages && res.v_pages[0].view_pages.length > 0){
+      currentPage.value = res.v_pages[0].view_pages[0];
+    } else {
+      currentPage.value = res.v_pages[0];
+    }
     current.value = currentPage.value.id;
     parseImages();
     buildMenuItems();
@@ -127,6 +130,9 @@ onMounted(() => {
 .image-gallery {
   display: flex;
   flex-wrap: wrap;
+  .image-slide{
+    width: 50% !important;
+  }
 }
 
 </style>
