@@ -77,4 +77,28 @@ export const customElementList = [
     element: 'MapWithGeometry',
     component: defineAsyncComponent(() => import('./GIS/MapWithGeometry.vue')),
   },
+  {
+    element: 'mapserver_layer',
+    component: defineAsyncComponent(() => import('./gis/mapserver_layer.vue')),
+  },
+  {
+    element: 'Point',
+    component: defineAsyncComponent(() => import('./GIS/Point.vue')),
+  },
+  {
+    element: 'Polygon',
+    component: defineAsyncComponent(() => import('./GIS/Polygon.vue')),
+  },
+  {
+    element: 'MultiPolygon',
+    component: defineAsyncComponent(() => import('./GIS/MultiPolygon.vue')),
+  },
+  {
+    element: 'Line',
+    component: defineAsyncComponent(() => import('./GIS/Line.vue')),
+  },
+  {
+    element: 'MultiLine',
+    component: defineAsyncComponent(() => import('./GIS/MultiLine.vue')),
+  },
 ]
