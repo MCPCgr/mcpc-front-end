@@ -2,7 +2,7 @@
   <div class="top-menu flex items-center ">
     <!-- Logo on the left -->
     <div class="logo-container px-4">
-      <img src="https://erp.mcpc.mn/amjilthome/logos/mcpc-gr.svg" alt="Logo" class="h-10 w-auto cursor-pointer" />
+      <img src="https://erp.mcpc.mn/amjilthome/logos/mcpc-gr.svg" alt="Logo"  @click="toggleFullScreen" class="h-10 w-auto cursor-pointer" />
     </div>
 
     <!-- Ant Design Menu component -->
@@ -21,7 +21,7 @@
           :key="index"
           :src="image.thumbUrl"
           :alt="image.name"
-          :width="200"
+          class="w-full"
           style="margin: 10px;"
         />
       </div>
@@ -43,10 +43,20 @@ const parsedImages = ref([]);
 const items = ref([]);
 const current = ref(null);
 
+function toggleFullScreen() {
+  const doc = document.documentElement;
+  if (!document.fullscreenElement) {
+    doc.requestFullscreen().catch((err) => {
+      console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+    });
+  } else {
+    document.exitFullscreen();
+  }
+}
 function getData(id) {
   getPre(id).then((res) => {
     pages.value = res.v_pages;
-    currentPage.value = res.v_pages[0];
+    currentPage.value = res.v_pages[0].view_pages[0];
     current.value = currentPage.value.id;
     parseImages();
     buildMenuItems();
@@ -68,7 +78,7 @@ function navigateToPage(page) {
 }
 
 function handleMenuSelect(page) {
-
+console.log(page)
   navigateToPage(page.item);
 }
 
