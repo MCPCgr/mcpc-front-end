@@ -77,7 +77,14 @@ function parseImages() {
 }
 
 function navigateToPage(page) {
-  currentPage.value = page;
+
+const map_id = page.map_id;
+
+  currentPage.value = {...page, map_id:null};
+
+  setTimeout(()=>{
+    currentPage.value.map_id = map_id;
+  }, 300)
 
   parseImages();
 }
