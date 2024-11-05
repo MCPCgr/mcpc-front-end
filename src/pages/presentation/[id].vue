@@ -21,8 +21,6 @@
           :key="index"
           :src="image.thumbUrl"
           :alt="image.name"
-
-
         />
       </div>
 
