@@ -1,19 +1,23 @@
 <template>
   <div class="grid grid-cols-12 2xl:grid-cols-10 map-container h-screen bg-white dark:bg-slate-900">
-    <div
-      class="col-span-12 lg:col-span-4 xl:col-span-3 2xl:col-span-2 p-6 overflow-y-auto bg-white dark:bg-slate-900">
-      <div class="menu_style bg-white dark:bg-slate-900">
-        <LayerList
-          :categories="categories"
-          @change-layer-unique-visible="changeLayerUniqueVisible"
-          @change-layer-visible="changeLayerVisible"
-        ></LayerList>
-      </div>
-    </div>
-    <div class="col-span-12 lg:col-span-8 xl:col-span-9 2xl:col-span-8 web-map">
+<!--    <div-->
+<!--      class="col-span-12 lg:col-span-4 xl:col-span-3 2xl:col-span-2 p-6 overflow-y-auto bg-white dark:bg-slate-900">-->
+<!--      <div class="menu_style bg-white dark:bg-slate-900">-->
+
+<!--      </div>-->
+<!--    </div>-->
+    <div class="col-span-12 lg:col-span-12 xl:col-span-12 2xl:col-span-12 web-map">
+      <LayerList
+        :categories="categories"
+        @change-layer-unique-visible="changeLayerUniqueVisible"
+        @change-layer-visible="changeLayerVisible"
+        class="layer-list"
+      ></LayerList>
       <div id="map">
 
+
       </div>
+
       <div id="popup" class="ol-popup text-[13px]">
         <a href="#" id="popup-closer" class="ol-popup-closer"></a>
         <div id="popup-content"></div>
@@ -53,7 +57,7 @@ export default {
   data() {
     return {
       mapID:this.map_id,
-      zoom:12,
+      zoom:8,
     }
   }
 }

@@ -2,7 +2,7 @@
   <a-menu
     v-model:openKeys="openKeys"
     v-model:selectedKeys="selectedKeys"
-    style="width: 100%;"
+
     mode="inline"
     class="map-layer-list"
   >

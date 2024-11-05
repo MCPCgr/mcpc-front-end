@@ -14,6 +14,7 @@
     <div v-if="currentPage">
       <h2>{{ currentPage.title }}</h2>
       <div v-html="currentPage.description"></div>
+      <PreMap v-if="currentPage.map_id" :map_id="currentPage.map_id" class="w-full presentation-map mt-1"></PreMap>
       <div v-if="currentPage.page_images" class="image-gallery">
         <a-image
           v-for="(image, index) in parsedImages"
@@ -24,7 +25,7 @@
           style="margin: 10px;"
         />
       </div>
-      <PreMap v-if="currentPage.map_id" :map_id="currentPage.map_id" class="w-full h-3/4"></PreMap>
+
     </div>
   </div>
 </template>
@@ -111,7 +112,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .top-menu {
   width: 100%;
 
@@ -127,4 +128,5 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
 }
+
 </style>

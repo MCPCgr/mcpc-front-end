@@ -171,7 +171,7 @@ export default {
       selectedKeys: [],
       searchValue: "",
       checkMapInterval: null,
-      zoom: 13,
+      zoom: 6,
       bases: bases,
       baseKey,
       base: new TileLayer({
@@ -496,7 +496,7 @@ export default {
         target: document.getElementById("map"),
         layers: [],
         view: new View({
-          center: fromLonLat([106.91736415028574, 47.91876971846709]),
+          center: fromLonLat([106.09955, 48.61400]),
           zoom: this.zoom,
           maxZoom: 19,
         }),

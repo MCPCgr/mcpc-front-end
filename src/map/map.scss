@@ -1,9 +1,24 @@
 .map-container {
-  height: calc(100vh - 60px);
+  height: calc(100vh - 200px);
 }
 
 .web-map {
   position: relative;
+  height: calc(100vh - 200px);
+  .ant-menu-sub.ant-menu-inline {
+    background:#fff!important;
+  }
+  .layer-list{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 280px !important;
+    z-index: 1000000;
+  }
+  #map{
+    height: calc(100vh - 200px);
+    border:1px solid #ccc;
+  }
   #locate{
     position: absolute;
     top: 209px;
