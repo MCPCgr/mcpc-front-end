@@ -14,15 +14,13 @@
     <div v-if="currentPage">
       <h2>{{ currentPage.title }}</h2>
       <div v-html="currentPage.description"></div>
-      <PreMap v-if="currentPage.map_id" :current_page="currentPage" class="w-full presentation-map mt-1"></PreMap>
-      <div v-if="currentPage.page_images" class="image-gallery">
+      <PreMap v-if="currentPage.map_id" :map_id="currentPage.map_id" class="w-full presentation-map mt-1"></PreMap>
+      <div v-if="currentPage.page_images" class="image-gallery mx-auto">
         <a-image
           v-for="(image, index) in parsedImages"
           :key="index"
           :src="image.thumbUrl"
           :alt="image.name"
-          class="image-slide"
-
         />
       </div>
 
@@ -115,24 +113,7 @@ onMounted(() => {
 });
 </script>
 
-<style scoped lang="scss">
-.top-menu {
-  width: 100%;
+<style scoped >
 
-  padding: 10px;
-}
-
-.page-content {
-  margin-top: 20px;
-  padding: 20px;
-}
-
-.image-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  .image-slide{
-    width: 50% !important;
-  }
-}
 
 </style>
